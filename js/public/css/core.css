@@ -1,0 +1,89 @@
+body, html {
+    background-color: #555555;
+    height: 100%;
+}
+
+.main-content {
+    height: 70%;
+    min-height: 600px;
+    background-color: red;
+}
+
+.controls {
+    height: 80px;
+    width: 400px;
+    background: rgb(200, 54, 54);
+    background: rgba(200, 54, 54, 0.5); 
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 24px;
+    text-align: center;
+    border: 1px solid #3e3e3e;
+}
+
+.mini {
+    width: 100px;
+    height: 120px;
+    position: absolute;
+    right: 6px;
+    bottom: 6px;
+}
+
+.toggle-button {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.pause {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 24px 0 24px 48px;
+    border-color: transparent transparent transparent #3e3e3e;
+    margin-top: 16px;
+}
+
+.play {
+    display: inline-block;
+    width: 10px;
+    height: 48px;
+    border-right: 14px solid #3e3e3e;
+    border-left: 14px solid #3e3e3e;
+    margin-top: 16px;
+}
+
+.volume {
+    background-image: url('images/volume.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 48px;
+    width: 48px;
+    margin-left: 32px;
+    display: inline-block;
+}
+
+.volume-container {
+    display: inline-block;
+}
+
+.small {
+    margin: 3px;
+}
+
+.volume-up {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 12px 24px 12px;
+    border-color: transparent transparent #3e3e3e transparent;
+    margin-bottom: 6px;
+}
+
+.volume-down {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 24px 12px 0 12px;
+    border-color: #3e3e3e transparent transparent transparent;
+}

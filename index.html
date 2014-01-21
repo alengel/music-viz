@@ -14,6 +14,7 @@
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="js/public/css/core.css">
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
@@ -21,10 +22,18 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <div class="content"></div>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+        <div class="content">
+            <div class="main-content"></div>
+            <div class="controls">
+                <audio id="audioFile" class="audioFile" src="js/public/assets/audio/Brighton.mp3"></audio>
+                <div class="toggle-button pause"></div>
+                <div class="volume"></div>
+                <div class="volume-container">
+                    <div class="volume-up"></div>
+                    <div class="volume-down"></div> 
+                </div>
+            </div>
+        </div>
+        <script data-main="main" src="js/vendor/require.js"></script>
     </body>
 </html>
