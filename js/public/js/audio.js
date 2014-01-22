@@ -7,12 +7,12 @@ function(
     'use strict';
 
     function moveControlsAside(){
-        $('.controls').addClass('mini');
+        $('.controls').removeClass('.big').addClass('mini');
         $('.toggle-button, .volume, .volume-container').addClass('small');
     }
 
     function moveControlsBack(){
-        $('.controls').removeClass('mini');
+        $('.controls').removeClass('mini').addClass('big');
         $('.toggle-button, .volume, .volume-container').removeClass('small');
     }
     
@@ -52,6 +52,7 @@ function(
             }
 
             toggleButton.addClass('play').removeClass('pause');
+            $('.main-content').addClass('start');
             audioFile[0].play();
             moveControlsAside(); 
         },

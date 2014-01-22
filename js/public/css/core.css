@@ -3,13 +3,44 @@ body, html {
     height: 100%;
 }
 
-.main-content {
-    height: 70%;
-    min-height: 600px;
-    background-color: red;
+.content{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /*background: url('images/wheel.jpg') no-repeat center;*/
+    /*background-size: cover;*/
 }
 
-.controls {
+.main-content {
+    position: absolute;
+    top: 45%;
+    bottom: 45%;
+    left: 45%;
+    right: 45%;
+    background: url('images/wheel.jpg') no-repeat center;
+    background-size: cover;
+    -moz-transition: all 1s; 
+    -webkit-transition: all 1s ease;  
+    -ms-transition: all 1s ease;  
+    -o-transition: all 1s ease;  
+    transition: all 1s ease;
+}
+
+.start {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url('images/wheel.jpg') no-repeat center;
+    background-size: cover;
+    -webkit-transform:rotate(360deg);
+    transform:rotate(360deg);
+}
+
+.big {
     height: 80px;
     width: 400px;
     background: rgb(200, 54, 54);
@@ -19,14 +50,30 @@ body, html {
     margin-top: 24px;
     text-align: center;
     border: 1px solid #3e3e3e;
+    position: absolute;
+    bottom: 5%;
+    right: 6px;
+/*    -moz-transition: all 1s; 
+    -webkit-transition: all 1s ease;  
+    -ms-transition: all 1s ease;  
+    -o-transition: all 1s ease;  
+    transition: all 1s ease; */ 
 }
 
 .mini {
     width: 100px;
     height: 120px;
+    background: rgb(200, 54, 54);
+    background: rgba(200, 54, 54, 0.5); 
+    border: 1px solid #3e3e3e;
     position: absolute;
     right: 6px;
     bottom: 6px;
+/*    -moz-transition: all 1s; 
+    -webkit-transition: all 1s ease;  
+    -ms-transition: all 1s ease;  
+    -o-transition: all 1s ease;  
+    transition: all 1s ease; */ 
 }
 
 .toggle-button {
