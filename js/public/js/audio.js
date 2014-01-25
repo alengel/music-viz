@@ -1,61 +1,61 @@
 define([
-    'js/public/js/animation'], 
+    'js/public/js/controls',
+    'js/public/js/animation',
+    'js/public/js/timer'], 
 function(
-    animation
+    controls,
+    animation,
+    timer
 ){
     'use strict';
 
-    var transEndEventNames = {
-        'WebkitTransition' : 'webkitTransitionEnd',
-        'MozTransition'    : 'transitionend',
-        'OTransition'      : 'oTransitionEnd otransitionend',
-        'msTransition'     : 'MSTransitionEnd',
-        'transition'       : 'transitionend'
-    },
-    transEndEventName = transEndEventNames[ Modernizr.prefixed('transition') ];
-
-    function moveControlsAside(){
-        $('.controls').removeClass('.big').addClass('mini');
-        $('.toggle-button, .volume, .volume-container').addClass('small');
-    }
-
-    function moveControlsBack(){
-        $('.controls').removeClass('mini').addClass('big');
-        $('.toggle-button, .volume, .volume-container').removeClass('small');
-    }
-
     function onTransitionEnd(){
+        var transEndEventNames = {
+            'WebkitTransition' : 'webkitTransitionEnd',
+            'MozTransition'    : 'transitionend',
+            'OTransition'      : 'oTransitionEnd otransitionend',
+            'msTransition'     : 'MSTransitionEnd',
+            'transition'       : 'transitionend'
+        },
+        transEndEventName = transEndEventNames[ Modernizr.prefixed('transition') ];
+
         $('.main-content').one('transitionend', 
         function() {
             animation.initialize(); 
+            timer.startTimer();
         });
     }
     
-    return {
+    var Audio = {
         initialize: function(){
-            $('.toggle-button').bind('click', this.playAudio);
+            $('.toggle-button').bind('click', this.toggleAudio);
             $('.volume-up').bind('click', this.raiseVolume);
             $('.volume-down').bind('click', this.lowerVolume);
         },
 
-        playAudio: function() {
-            var audioFile = $('.audioFile'),
-                toggleButton = $('.toggle-button');
-            audioFile[0].volume = 0.5;
+        toggleAudio: function() {
+            $('.audioFile')[0].volume = 0.5;
 
-            if(toggleButton.hasClass('play')){
-                audioFile[0].pause();
-                toggleButton.removeClass('play').addClass('pause');
-                moveControlsBack();
+            if($('.toggle-button').hasClass('play')){
+                Audio.pauseAudio();
                 return;
             }
 
-            toggleButton.addClass('play').removeClass('pause');
-            $('.main-content').addClass('start');
-            audioFile[0].play();
-            moveControlsAside(); 
-
+            Audio.playAudio();
             onTransitionEnd();
+        },
+
+        playAudio: function(){
+            $('.toggle-button').addClass('play').removeClass('pause');
+            $('.main-content').addClass('start');
+            $('.audioFile')[0].play();
+            controls.moveControlsAside(); 
+        },
+
+        pauseAudio: function(){
+            $('.audioFile')[0].pause();
+            $('.toggle-button').removeClass('play').addClass('pause');
+            controls.moveControlsBack();
         },
 
         raiseVolume: function(){
@@ -72,4 +72,6 @@ function(
             $('.audioFile')[0].volume-=0.1;
         }
     };
+
+    return Audio;
 });

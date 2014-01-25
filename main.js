@@ -14,14 +14,13 @@ function(
 ) {
     'use strict';
 
-    //declare namespace
     var MusicViz = {
         initialize: function(){
-            this.loadAudio();
+            this.loadMainAnimation();
             this.loadGlobe();
         },
 
-        loadAudio: function(){
+        loadMainAnimation: function(){
             audioHelpers.initialize();
         },
 

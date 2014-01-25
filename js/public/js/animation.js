@@ -19,11 +19,11 @@ function(){
 
             backGround.attr({ fill: "blue"}); 
 
-            // this.ball = this.paper.circle(50,50,30);
+            this.ball = this.paper.circle(50,50,30);
         },
 
         drawBall: function(){
-            // this.ball.animate({cy: 570 , cx: 400}, 500, 'ease-in', this.bounceBall);
+            this.ball.animate({cy: 570 , cx: 400}, 500, 'ease-in', this.bounceBall);
         }       
     };
 });
