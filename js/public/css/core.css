@@ -18,10 +18,10 @@ body, html {
     right: 40%;
     background: url('images/wheel.jpg') no-repeat center;
     background-size: cover;
-    -moz-transition: all 1s; 
-    -webkit-transition: all 1s ease;  
-    -ms-transition: all 1s ease;  
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s;   
     -o-transition: all 1s ease;  
+    -ms-transition: all 1s ease;
     transition: all 1s ease;
 }
 
@@ -39,13 +39,16 @@ body, html {
     bottom: 0;
     left: 0;
     right: 0;
-    -khtml-opacity:.40; 
+    -webkit-opacity:.40; 
     -moz-opacity:.40; 
+    -o-opacity:.40; 
     -ms-filter:"alpha(opacity=40)";
     filter:alpha(opacity=40);
-    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0.4);
     opacity:.40;
     -webkit-transform:rotate(360deg);
+    -moz-transform:rotate(360deg);
+    -o-transform:rotate(360deg);
+    -ms-transform:rotate(360deg);
     transform:rotate(360deg);
 }
 
@@ -54,9 +57,7 @@ body, html {
     width: 400px;
     background: rgb(200, 54, 54);
     background: rgba(200, 54, 54, 0.5); 
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 24px;
+    margin: 24px auto 0 auto;
     text-align: center;
     border: 1px solid #3e3e3e;
     position: absolute;
@@ -100,9 +101,7 @@ body, html {
 }
 
 .volume {
-    background-image: url('images/volume.png');
-    background-repeat: no-repeat;
-    background-position: center;
+    background: url('images/volume.png') no-repeat center;
     height: 48px;
     width: 48px;
     margin-left: 32px;
@@ -117,19 +116,19 @@ body, html {
     margin: 3px;
 }
 
-.volume-up {
+.volume-button {
     width: 0;
     height: 0;
     border-style: solid;
+}
+
+.volume-up {
     border-width: 0 12px 24px 12px;
-    border-color: transparent transparent #3e3e3e transparent;
     margin-bottom: 6px;
+    border-color: transparent transparent #3e3e3e transparent;
 }
 
 .volume-down {
-    width: 0;
-    height: 0;
-    border-style: solid;
     border-width: 24px 12px 0 12px;
     border-color: #3e3e3e transparent transparent transparent;
 }

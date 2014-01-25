@@ -21,6 +21,8 @@ define([''], function(){
 
         countTime: function(){
             Timer.counter++;
+
+            console.log(Timer.counter);
         }
     };
 

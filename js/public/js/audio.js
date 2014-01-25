@@ -21,8 +21,7 @@ function(
 
         $('.main-content').one('transitionend', 
         function() {
-            animation.initialize(); 
-            timer.startTimer();
+            animation.initialize();
         });
     }
     
@@ -48,14 +47,20 @@ function(
         playAudio: function(){
             $('.toggle-button').addClass('play').removeClass('pause');
             $('.main-content').addClass('start');
+            
             $('.audioFile')[0].play();
-            controls.moveControlsAside(); 
+            
+            controls.moveControlsAside();
+            timer.startTimer(); 
         },
 
         pauseAudio: function(){
-            $('.audioFile')[0].pause();
             $('.toggle-button').removeClass('play').addClass('pause');
+
+            $('.audioFile')[0].pause();
+                        
             controls.moveControlsBack();
+            timer.pauseTimer();
         },
 
         raiseVolume: function(){
