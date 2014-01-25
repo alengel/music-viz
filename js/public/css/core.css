@@ -12,10 +12,10 @@ body, html {
 
 .main-content {
     position: absolute;
-    top: 45%;
-    bottom: 45%;
-    left: 45%;
-    right: 45%;
+    top: 40%;
+    bottom: 40%;
+    left: 40%;
+    right: 40%;
     background: url('images/wheel.jpg') no-repeat center;
     background-size: cover;
     -moz-transition: all 1s; 
@@ -25,14 +25,20 @@ body, html {
     transition: all 1s ease;
 }
 
+#animation-content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
 .start {
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background: url('images/wheel.jpg') no-repeat center;
-    background-size: cover;
     -khtml-opacity:.40; 
     -moz-opacity:.40; 
     -ms-filter:"alpha(opacity=40)";
@@ -56,11 +62,6 @@ body, html {
     position: absolute;
     bottom: 6px;
     right: 6px;
-/*    -moz-transition: all 1s; 
-    -webkit-transition: all 1s ease;  
-    -ms-transition: all 1s ease;  
-    -o-transition: all 1s ease;  
-    transition: all 1s ease; */ 
 }
 
 .mini {
@@ -72,11 +73,6 @@ body, html {
     position: absolute;
     right: 6px;
     bottom: 6px;
-/*    -moz-transition: all 1s; 
-    -webkit-transition: all 1s ease;  
-    -ms-transition: all 1s ease;  
-    -o-transition: all 1s ease;  
-    transition: all 1s ease; */ 
 }
 
 .toggle-button {

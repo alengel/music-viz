@@ -1,10 +1,18 @@
 define([
-    'js/public/js/controls.js',
-    'js/public/lib/soundjs'], 
+    'js/public/js/animation'], 
 function(
-    controls
+    animation
 ){
     'use strict';
+
+    var transEndEventNames = {
+        'WebkitTransition' : 'webkitTransitionEnd',
+        'MozTransition'    : 'transitionend',
+        'OTransition'      : 'oTransitionEnd otransitionend',
+        'msTransition'     : 'MSTransitionEnd',
+        'transition'       : 'transitionend'
+    },
+    transEndEventName = transEndEventNames[ Modernizr.prefixed('transition') ];
 
     function moveControlsAside(){
         $('.controls').removeClass('.big').addClass('mini');
@@ -15,32 +23,23 @@ function(
         $('.controls').removeClass('mini').addClass('big');
         $('.toggle-button, .volume, .volume-container').removeClass('small');
     }
+
+    function onTransitionEnd(){
+        $('.main-content').one('transitionend', 
+        function() {
+            animation.initialize(); 
+        });
+    }
     
     return {
         initialize: function(){
-            // this.loadAudioFile();
-
             $('.toggle-button').bind('click', this.playAudio);
             $('.volume-up').bind('click', this.raiseVolume);
             $('.volume-down').bind('click', this.lowerVolume);
         },
 
-        // loadAudioFile: function(){
-        //     createjs.Sound.alternateExtensions = ['mp3'];
-        //     createjs.Sound.addEventListener('fileload', createjs.proxy(this.playSound, this));
-        //     createjs.Sound.registerSound('js/public/assets/audio/Brighton.mp3', 'sound');
-        // },
-
-        // playSound: function(event) {
-        //     var instance = createjs.Sound.play('sound');  // play using id.  Could also use full sourcepath or event.src.
-            
-        //     instance.addEventListener('complete', createjs.proxy(this.handleComplete, this));
-        //     instance.volume = 1.0;
-        // },
-
         playAudio: function() {
-            var that = this,
-                audioFile = $('.audioFile'),
+            var audioFile = $('.audioFile'),
                 toggleButton = $('.toggle-button');
             audioFile[0].volume = 0.5;
 
@@ -55,6 +54,8 @@ function(
             $('.main-content').addClass('start');
             audioFile[0].play();
             moveControlsAside(); 
+
+            onTransitionEnd();
         },
 
         raiseVolume: function(){
