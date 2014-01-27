@@ -25,14 +25,6 @@ body, html {
     transition: all 1s ease;
 }
 
-#animation-content {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
 .start {
     position: absolute;
     top: 0;
@@ -131,4 +123,29 @@ body, html {
 .volume-down {
     border-width: 24px 12px 0 12px;
     border-color: #3e3e3e transparent transparent transparent;
+}
+
+#trumpets {
+    position: absolute;
+    bottom: -190px;
+    left: -95px;
+    width: 100%;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s;   
+    -o-transition: all 1s ease;  
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.animate-trumpets {
+    width: 130%;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s;   
+    -o-transition: all 1s ease;  
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.hidden {
+    display: none;
 }

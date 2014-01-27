@@ -1,9 +1,11 @@
 define([
     'js/public/js/controls',
-    'js/public/js/animation'], 
+    'js/public/js/animation',
+    'js/public/js/timer'], 
 function(
     controls,
-    animation
+    animation,
+    timer
 ){
     'use strict';
 
@@ -57,6 +59,7 @@ function(
             $('.audioFile')[0].pause();
                         
             controls.moveControlsBack();
+            animation.stopTimer();
         },
 
         raiseVolume: function(){
