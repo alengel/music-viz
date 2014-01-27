@@ -1,11 +1,9 @@
 define([
     'js/public/js/controls',
-    'js/public/js/animation',
-    'js/public/js/timer'], 
+    'js/public/js/animation'], 
 function(
     controls,
-    animation,
-    timer
+    animation
 ){
     'use strict';
 
@@ -49,9 +47,8 @@ function(
             $('.main-content').addClass('start');
             
             $('.audioFile')[0].play();
-            
+
             controls.moveControlsAside();
-            timer.startTimer(); 
         },
 
         pauseAudio: function(){
@@ -60,7 +57,6 @@ function(
             $('.audioFile')[0].pause();
                         
             controls.moveControlsBack();
-            timer.pauseTimer();
         },
 
         raiseVolume: function(){
