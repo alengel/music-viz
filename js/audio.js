@@ -1,7 +1,7 @@
 define([
-    'js/public/js/controls',
-    'js/public/js/animation',
-    'js/public/js/timer'], 
+    'js/controls',
+    'js/animation',
+    'js/timer'], 
 function(
     controls,
     animation,

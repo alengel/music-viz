@@ -1,5 +1,5 @@
 define([
-    'js/public/lib/raphael'], 
+    'lib/raphael'], 
 function(){
     'use strict';
 
@@ -35,13 +35,13 @@ function(){
                 case 19: 
                     Animation.showTrumpets();
                     break;
-                case 29: 
-                    Animation.showTrumpets();
+                case 25: 
+                    Animation.lowerVolume();
                     break;
-                case 36: 
-                    Animation.showTrumpets();
+                case 28: 
+                    Animation.endAnimation();
                     break;
-                case 70:
+                case 30:
                     location.reload();
                     break;
             }
@@ -105,6 +105,14 @@ function(){
             Animation.trumpets.forEach(function(trumpet){
                 Animation.animateTrumpets(trumpet);
             });
+        },
+
+        lowerVolume: function(){
+            $('.audioFile')[0].volume+=0.1;
+        },
+
+        endAnimation: function(){
+            location.reload();
         },
 
         startTimer: function(){

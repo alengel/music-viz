@@ -1,10 +1,10 @@
 define([
     //3rd party libraries
-    'js/vendor/jquery',
-    'js/vendor/underscore',
+    'lib/jquery',
+    'lib/underscore',
     //application js files
-    'js/public/js/audio',
-    'js/public/js/globe'
+    'js/audio',
+    'js/globe'
     ], 
 function(
     $,
@@ -22,10 +22,6 @@ function(
 
         loadMainAnimation: function(){
             audioHelpers.initialize();
-        },
-
-        loadGlobe: function(){
-            globeHelpers.initialize();
         }
     };
 
