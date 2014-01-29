@@ -1,4 +1,4 @@
-define([''], function(){
+define(['js/animation'], function(Animation){
     'use strict';
 
     var Timer = {
@@ -7,22 +7,16 @@ define([''], function(){
         counter: 0,
 
         startTimer: function(){
-            this.refreshInterval = setInterval(this.countTime, 1000);
+            Timer.refreshInterval = setInterval(Animation.playAnimation, 1000);
         },
 
         pauseTimer: function(){
-            clearInterval(this.refreshInterval);
+            clearInterval(Timer.refreshInterval);
         },
 
         resetTimer: function(){
-            clearInterval(this.refreshInterval);
-            this.counter = 0;
-        },
-
-        countTime: function(){
-            Timer.counter++;
-
-            console.log(Timer.counter);
+            clearInterval(Timer.refreshInterval);
+            Timer.counter = 0;
         }
     };
 

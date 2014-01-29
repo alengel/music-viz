@@ -1,12 +1,12 @@
 define([
     'js/trumpets',
-    'js/audio',
+    'js/controls',
     'js/fonts',
     'lib/raphael'], 
 function(
-    trumpets,
-    audioHelpers,
-    fonts
+    Trumpets,
+    Controls,
+    Fonts
 ){
     'use strict';
 
@@ -25,32 +25,32 @@ function(
 
             switch(Animation.counter){
                 case 1: 
-                    fonts.showWelcomeMessage();
+                    Fonts.showWelcomeMessage();
                     break;
                 case 2: 
-                    fonts.changeWelcomeMessage();
+                    Fonts.changeWelcomeMessage();
                     break;
                 case 3: 
-                    fonts.rotateWelcomeMessage();
+                    Fonts.rotateWelcomeMessage();
                     break;
                 case 4:
-                    fonts.moveMessage();
+                    Fonts.moveMessage();
                     break;
-                case 7:
-                    fonts.removeMessage();
+                case 6:
+                    Fonts.removeMessage();
                     break;
                 case 9:
-                    trumpets.drawBackground(); 
-                    trumpets.drawTrumpets();
+                    Trumpets.drawBackground(); 
+                    Trumpets.drawTrumpets();
                     break;
                 case 13: 
-                    trumpets.showTrumpets();
+                    Trumpets.showTrumpets();
                     break;
                 case 15: 
-                    trumpets.showTrumpets();
+                    Trumpets.showTrumpets();
                     break;
                 case 19: 
-                    trumpets.showTrumpets();
+                    Trumpets.showTrumpets();
                     break;
                 case 25: 
                     Animation.endAnimation();
@@ -62,18 +62,8 @@ function(
         },
 
         endAnimation: function(){
-            var lowerVolumeInterval = setInterval(Animation.lowerVolume, 500);
-            setTimeout(fonts.showEndMessage(), 3000);
-        },
-
-        lowerVolume: function(){
-            var $audio = $('.audioFile')[0];
-
-            if($audio.volume <= 0.01){
-                return;
-            }
-
-            $audio.volume -= 0.1;
+            var lowerVolumeInterval = setInterval(Controls.lowerVolume, 500);
+            setTimeout(Fonts.showEndMessage(), 3000);
         },
 
         startTimer: function(){

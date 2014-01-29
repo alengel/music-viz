@@ -192,7 +192,4 @@ body, html {
     -ms-transform: translate(100%, 100%);
     -o-transform: translate(100%, 100%);
     transform: translate(100%, 100%);
-    position: absolute;
-    left: 1200px;
-    right: -1200px;
 }

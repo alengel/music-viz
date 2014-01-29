@@ -8,19 +8,15 @@ define([
 function(
     $,
     _,
-    audioHelpers
+    Audio
 ) {
     'use strict';
 
     var MusicViz = {
-        initialize: function(){
-            this.loadMainAnimation();
-        },
-
         loadMainAnimation: function(){
-            audioHelpers.initialize();
+            Audio.initialize();
         }
     };
 
-    return MusicViz.initialize();
+    return MusicViz.loadMainAnimation();
 });

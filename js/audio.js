@@ -1,7 +1,9 @@
 define([
+    'js/controls',
     'js/animation'], 
 function(
-    animation
+    Controls,
+    Animation
 ){
     'use strict';
 
@@ -17,15 +19,15 @@ function(
 
         $('.main-content').one('transitionend', 
         function() {
-            animation.initialize();
+            Animation.initialize();
         });
     }
     
     var Audio = {
         initialize: function(){
             $('.toggle-button').bind('click', this.toggleAudio);
-            $('.volume-up').bind('click', this.raiseVolume);
-            $('.volume-down').bind('click', this.lowerVolume);
+            $('.volume-up').bind('click', Controls.raiseVolume);
+            $('.volume-down').bind('click', Controls.lowerVolume);
             $('.play-again').bind('click', this.reloadAnimation);
         },
 
@@ -47,7 +49,11 @@ function(
             
             $('.audioFile')[0].play();
 
-            Audio.moveControlsAside();
+            Controls.moveControlsAside();
+
+            if(Animation.counter !== 0){
+                Animation.startTimer();
+            }
         },
 
         pauseAudio: function(){
@@ -55,38 +61,8 @@ function(
 
             $('.audioFile')[0].pause();
                         
-            Audio.moveControlsBack();
-            animation.stopTimer();
-        },
-
-        raiseVolume: function(){
-            var $audio = $('.audioFile')[0];
-            
-            if($audio.volume >= 0.99){
-                return;
-            }
-
-            $audio.volume += 0.1;
-        },
-
-        lowerVolume: function(){            
-            var $audio = $('.audioFile')[0];
-
-            if($audio.volume <= 0.01){
-                return;
-            }
-
-            $audio.volume -= 0.1;
-        },
-
-        moveControlsAside: function(){
-            $('.controls').removeClass('.big').addClass('mini');
-            $('.toggle-button, .volume, .volume-container').addClass('small');
-        },
-
-        moveControlsBack: function(){
-            $('.controls').removeClass('mini').addClass('big');
-            $('.toggle-button, .volume, .volume-container').removeClass('small');
+            Controls.moveControlsBack();
+            Animation.stopTimer();
         },
 
         reloadAnimation: function(){
