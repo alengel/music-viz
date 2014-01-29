@@ -1,11 +1,7 @@
 define([
-    'js/controls',
-    'js/animation',
-    'js/timer'], 
+    'js/animation'], 
 function(
-    controls,
-    animation,
-    timer
+    animation
 ){
     'use strict';
 
@@ -30,6 +26,7 @@ function(
             $('.toggle-button').bind('click', this.toggleAudio);
             $('.volume-up').bind('click', this.raiseVolume);
             $('.volume-down').bind('click', this.lowerVolume);
+            $('.play-again').bind('click', this.reloadAnimation);
         },
 
         toggleAudio: function() {
@@ -50,7 +47,7 @@ function(
             
             $('.audioFile')[0].play();
 
-            controls.moveControlsAside();
+            Audio.moveControlsAside();
         },
 
         pauseAudio: function(){
@@ -58,22 +55,42 @@ function(
 
             $('.audioFile')[0].pause();
                         
-            controls.moveControlsBack();
+            Audio.moveControlsBack();
             animation.stopTimer();
         },
 
         raiseVolume: function(){
-            if($('.audioFile')[0].volume >= 0.99){
+            var $audio = $('.audioFile')[0];
+            
+            if($audio.volume >= 0.99){
                 return;
             }
-            $('.audioFile')[0].volume+=0.1;
+
+            $audio.volume += 0.1;
         },
 
         lowerVolume: function(){            
-            if($('.audioFile')[0].volume <= 0.01){
+            var $audio = $('.audioFile')[0];
+
+            if($audio.volume <= 0.01){
                 return;
             }
-            $('.audioFile')[0].volume-=0.1;
+
+            $audio.volume -= 0.1;
+        },
+
+        moveControlsAside: function(){
+            $('.controls').removeClass('.big').addClass('mini');
+            $('.toggle-button, .volume, .volume-container').addClass('small');
+        },
+
+        moveControlsBack: function(){
+            $('.controls').removeClass('mini').addClass('big');
+            $('.toggle-button, .volume, .volume-container').removeClass('small');
+        },
+
+        reloadAnimation: function(){
+            location.reload();
         }
     };
 

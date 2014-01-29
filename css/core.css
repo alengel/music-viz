@@ -31,12 +31,12 @@ body, html {
     bottom: 0;
     left: 0;
     right: 0;
-    -webkit-opacity:.40; 
-    -moz-opacity:.40; 
-    -o-opacity:.40; 
-    -ms-filter:"alpha(opacity=40)";
-    filter:alpha(opacity=40);
-    opacity:.40;
+    -webkit-opacity:.20; 
+    -moz-opacity:.20; 
+    -o-opacity:.20; 
+    -ms-filter:"alpha(opacity=20)";
+    filter:alpha(opacity=20);
+    opacity:.20;
     -webkit-transform:rotate(360deg);
     -moz-transform:rotate(360deg);
     -o-transform:rotate(360deg);
@@ -148,4 +148,51 @@ body, html {
 
 .hidden {
     display: none;
+}
+
+.welcome {
+    color: #FFFFFF;
+    margin-top: 300px;
+    font-size: 48px;
+    text-align: center;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s;   
+    -o-transition: all 1s ease;  
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.change-colour {
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s;   
+    -o-transition: all 1s ease;  
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+    color: rgb(200, 54, 54);
+}
+
+.rotate {
+    background-color: #F1F1F1;
+    -webkit-transform:rotate(360deg);
+    -moz-transform:rotate(360deg);
+    -o-transform:rotate(360deg);
+    -ms-transform:rotate(360deg);
+    transform:rotate(360deg);
+}
+
+.move-to-right {
+    -webkit-opacity:.20; 
+    -moz-opacity:.20; 
+    -o-opacity:.20; 
+    -ms-filter:"alpha(opacity=20)";
+    filter:alpha(opacity=20);
+    opacity:.20;
+    -webkit-transform: translate(100%, 100%);
+    -moz-transform: translate(100%, 100%);
+    -ms-transform: translate(100%, 100%);
+    -o-transform: translate(100%, 100%);
+    transform: translate(100%, 100%);
+    position: absolute;
+    left: 1200px;
+    right: -1200px;
 }

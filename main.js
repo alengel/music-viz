@@ -3,21 +3,18 @@ define([
     'lib/jquery',
     'lib/underscore',
     //application js files
-    'js/audio',
-    'js/globe'
+    'js/audio'
     ], 
 function(
     $,
     _,
-    audioHelpers,
-    globeHelpers
+    audioHelpers
 ) {
     'use strict';
 
     var MusicViz = {
         initialize: function(){
             this.loadMainAnimation();
-            this.loadGlobe();
         },
 
         loadMainAnimation: function(){
