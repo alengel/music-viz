@@ -10,7 +10,7 @@ body, html {
     right: 0;
 }
 
-.main-content {
+.bg-content {
     position: absolute;
     top: 40%;
     bottom: 40%;
@@ -125,7 +125,7 @@ body, html {
     border-color: #3e3e3e transparent transparent transparent;
 }
 
-#trumpets {
+.trumpets {
     position: absolute;
     bottom: -190px;
     left: -95px;

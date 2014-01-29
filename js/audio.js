@@ -17,7 +17,7 @@ function(
         },
         transEndEventName = transEndEventNames[ Modernizr.prefixed('transition') ];
 
-        $('.main-content').one('transitionend', 
+        $('.bg-content').one('transitionend', 
         function() {
             Animation.initialize();
         });
@@ -45,7 +45,7 @@ function(
 
         playAudio: function(){
             $('.toggle-button').addClass('play').removeClass('pause');
-            $('.main-content').addClass('start');
+            $('.bg-content').addClass('start');
             
             $('.audioFile')[0].play();
 

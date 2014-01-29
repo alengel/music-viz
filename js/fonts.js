@@ -3,7 +3,7 @@ define(['lib/raphael'], function(){
     
     var Fonts = {
         showWelcomeMessage: function(){
-            var $animationContent = $('#animation-content');
+            var $animationContent = $('.animation-content');
             $animationContent.addClass('welcome')
                              .append('<span class="welcome-message">Brighton Music Animation</span>');
         },

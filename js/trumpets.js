@@ -3,7 +3,11 @@ define(['lib/raphael'], function(){
     
     var Trumpets = {
         drawBackground: function(){
-            var bg = document.getElementById('trumpets');
+            var bg;
+
+            $('.animation-content').append('<div class="trumpets"></div>');
+            bg = $('.trumpets')[0];
+            
             this.paper = new Raphael(bg, '100%', '100%'); 
         },
 
@@ -56,12 +60,12 @@ define(['lib/raphael'], function(){
         },
 
         hideTrumpets: function(){
-            $('#trumpets').addClass('hidden');
+            $('.trumpets').addClass('hidden');
             window.clearTimeout(this.animateInterval);
         }, 
 
         showTrumpets: function(){
-            $('#trumpets').removeClass('hidden');
+            $('.trumpets').removeClass('hidden');
             Trumpets.trumpets.forEach(function(trumpet){
                 Trumpets.animateTrumpets(trumpet);
             });
