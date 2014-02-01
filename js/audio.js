@@ -7,21 +7,7 @@ function(
 ){
     'use strict';
 
-    function onTransitionEnd(){
-        var transEndEventNames = {
-            'WebkitTransition' : 'webkitTransitionEnd',
-            'MozTransition'    : 'transitionend',
-            'OTransition'      : 'oTransitionEnd otransitionend',
-            'msTransition'     : 'MSTransitionEnd',
-            'transition'       : 'transitionend'
-        },
-        transEndEventName = transEndEventNames[ Modernizr.prefixed('transition') ];
-
-        $('.bg-content').one('transitionend', 
-        function() {
-            Animation.initialize();
-        });
-    }
+    
     
     var Audio = {
         initialize: function(){
@@ -40,14 +26,16 @@ function(
             }
 
             Audio.playAudio();
-            onTransitionEnd();
         },
 
         playAudio: function(){
+            var $audio = $('.audioFile');
+
             $('.toggle-button').addClass('play').removeClass('pause');
             $('.bg-content').addClass('start');
             
-            $('.audioFile')[0].play();
+            $audio[0].play();
+            $audio.trigger('play-audio');
 
             Controls.moveControlsAside();
 
@@ -57,9 +45,12 @@ function(
         },
 
         pauseAudio: function(){
+            var $audio = $('.audioFile');
+
             $('.toggle-button').removeClass('play').addClass('pause');
 
-            $('.audioFile')[0].pause();
+            $audio[0].pause();
+            $audio.trigger('pause-audio');
                         
             Controls.moveControlsBack();
             Animation.stopTimer();

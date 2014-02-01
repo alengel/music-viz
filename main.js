@@ -3,20 +3,20 @@ define([
     'lib/jquery',
     'lib/underscore',
     //application js files
-    'js/audio'
+    'js/controller'
     ], 
 function(
     $,
     _,
-    Audio
+    Controller
 ) {
     'use strict';
 
     var MusicViz = {
-        loadMainAnimation: function(){
-            Audio.initialize();
+        initialize: function(){
+            Controller.initialize();
         }
     };
 
-    return MusicViz.loadMainAnimation();
+    return MusicViz.initialize();
 });

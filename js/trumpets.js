@@ -7,7 +7,7 @@ define(['lib/raphael'], function(){
 
             $('.animation-content').append('<div class="trumpets"></div>');
             bg = $('.trumpets')[0];
-            
+
             this.paper = new Raphael(bg, '100%', '100%'); 
         },
 
@@ -26,42 +26,35 @@ define(['lib/raphael'], function(){
         },
 
         animateTrumpets: function(trumpet){
-            var that = this,
-                transformBigOptions = {'transform':'s1.2 1.2'},
-                transformSmallOptions = {'transform':'s0.8 0.8'};
-                
-            this.animateInterval = setTimeout(function(){
+            var that = this;
+            this.animateCount = 0;
+            
+            if(this.animateCount < 3) {
+                this.setAnimationTimeout(trumpet);
+            }
+        
+            // this.hideTrumpets();
+        },
+
+        setAnimationTimeout: function(trumpet){
+            var transformBigOptions = {'transform':'s1.2 1.2'},
+            transformSmallOptions = {'transform':'s0.8 0.8'};
+
+            this.animateCount++;
+
+            this.animateBigInterval = setTimeout(function(){
                 trumpet.animate(transformBigOptions, 150);
-            }, 500);
+            }, 150);
 
-            this.animateInterval = setTimeout(function(){
+            this.animateSmallInterval = setTimeout(function(){
                 trumpet.animate(transformSmallOptions, 150);
-            }, 700);
-
-            this.animateInterval = setTimeout(function(){
-                trumpet.animate(transformBigOptions, 150);
-            }, 900);
-
-            this.animateInterval = setTimeout(function(){
-                trumpet.animate(transformSmallOptions, 150);
-            }, 1100);
-
-            this.animateInterval = setTimeout(function(){
-                trumpet.animate(transformBigOptions, 150);
-            }, 1300);
-
-            this.animateInterval = setTimeout(function(){
-                trumpet.animate(transformSmallOptions, 150);
-            }, 1500);
-
-            this.animateInterval = setTimeout(function(){
-                that.hideTrumpets();
-            }, 2300);
+            }, 300);
         },
 
         hideTrumpets: function(){
             $('.trumpets').addClass('hidden');
-            window.clearTimeout(this.animateInterval);
+            window.clearTimeout(this.animateBigInterval);
+            window.clearTimeout(this.animateSmallInterval);
         }, 
 
         showTrumpets: function(){
