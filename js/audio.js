@@ -14,7 +14,6 @@ function(
             $('.toggle-button').bind('click', this.toggleAudio);
             $('.volume-up').bind('click', Controls.raiseVolume);
             $('.volume-down').bind('click', Controls.lowerVolume);
-            $('.play-again').bind('click', this.reloadAnimation);
         },
 
         toggleAudio: function() {
@@ -56,8 +55,11 @@ function(
             Animation.stopTimer();
         },
 
-        reloadAnimation: function(){
-            location.reload();
+        stopAudio: function(){
+            var $audio = $('.audioFile')[0];
+
+            $audio.pause();
+            $audio.currentTime = 0;
         }
     };
 

@@ -1,5 +1,6 @@
 body, html {
     background-color: #555555;
+    color: #F5F5F5;
 }
 
 .content{
@@ -92,6 +93,16 @@ body, html {
     margin-top: 16px;
 }
 
+.play-again {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 24px 0 24px 48px;
+    border-color: transparent transparent transparent #3e3e3e;
+    margin-top: 16px;
+}
+
 .volume {
     background: url('images/volume.png') no-repeat center;
     height: 48px;
@@ -151,7 +162,6 @@ body, html {
 }
 
 .welcome {
-    color: #FFFFFF;
     margin-top: 300px;
     font-size: 48px;
     text-align: center;
@@ -192,4 +202,30 @@ body, html {
     -ms-transform: translate(100%, 100%);
     -o-transform: translate(100%, 100%);
     transform: translate(100%, 100%);
+}
+
+.finish-message {
+    position: absolute;
+    left: 42%;
+    font-size: xx-large;
+}
+
+.final-position {
+    position: relative;
+    margin-top: 265px;
+    -webkit-transition: all 1s ease-out;
+    -moz-transition: all 1s;   
+    -o-transition: all 1s ease-out;  
+    -ms-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+}
+
+.controls-final {
+    bottom: 25%;
+    left: 0;
+    -webkit-transition: all 1s ease-out;
+    -moz-transition: all 1s;   
+    -o-transition: all 1s ease-out;  
+    -ms-transition: all 1s ease-out;
+    transition: all 1s ease-out;
 }

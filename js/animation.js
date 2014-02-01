@@ -24,21 +24,21 @@ function(
             console.log(Animation.counter);
 
             switch(Animation.counter){
-                // case 1: 
-                //     Fonts.showWelcomeMessage();
-                //     break;
-                // case 2: 
-                //     Fonts.changeWelcomeMessage();
-                //     break;
-                // case 3: 
-                //     Fonts.rotateWelcomeMessage();
-                //     break;
-                // case 4:
-                //     Fonts.moveMessage();
-                //     break;
-                // case 6:
-                //     Fonts.removeMessage();
-                //     break;
+                case 1: 
+                    Fonts.showWelcomeMessage();
+                    break;
+                case 2: 
+                    Fonts.changeWelcomeMessage();
+                    break;
+                case 3: 
+                    Fonts.rotateWelcomeMessage();
+                    break;
+                case 4:
+                    Fonts.moveMessage();
+                    break;
+                case 6:
+                    Fonts.removeMessage();
+                    break;
                 case 9:
                     Trumpets.drawBackground(); 
                     Trumpets.drawTrumpets();
@@ -65,21 +65,26 @@ function(
         },
 
         endAnimation: function(){
-            var lowerVolumeInterval = setInterval(Controls.lowerVolume, 500);
-            setTimeout(Fonts.showEndMessage(), 3000);
+            Animation.lowerVolumeInterval = setInterval(Controls.lowerVolume, 500);
+
+            _.delay(function(){
+                Fonts.showEndMessage();
+                $('.audioFile').trigger('stop-audio');
+            }, 3000);
         },
 
         startTimer: function(){
             Animation.refreshInterval = setInterval(Animation.startAnimation, 1000);
         },
 
-        stopTimer: function(){
-            clearInterval(Animation.refreshInterval);
-        },
-
         resetTimer: function(){
             Animation.stopTimer();
             Animation.counter = 0;
+        },
+
+        stopTimer: function(){
+            clearInterval(Animation.lowerVolumeInterval);
+            clearInterval(Animation.refreshInterval);
         }
     };
 
