@@ -24,26 +24,26 @@ function(
             console.log(Animation.counter);
 
             switch(Animation.counter){
-                case 1: 
-                    Fonts.showWelcomeMessage();
-                    break;
-                case 2: 
-                    Fonts.changeWelcomeMessage();
-                    break;
-                case 3: 
-                    Fonts.rotateWelcomeMessage();
-                    break;
-                case 4:
-                    Fonts.moveMessage();
-                    break;
-                case 6:
-                    Fonts.removeMessage();
-                    break;
+                // case 1: 
+                //     Fonts.showWelcomeMessage();
+                //     break;
+                // case 2: 
+                //     Fonts.changeWelcomeMessage();
+                //     break;
+                // case 3: 
+                //     Fonts.rotateWelcomeMessage();
+                //     break;
+                // case 4:
+                //     Fonts.moveMessage();
+                //     break;
+                // case 6:
+                //     Fonts.removeMessage();
+                //     break;
                 case 9:
                     Trumpets.drawBackground(); 
                     Trumpets.drawTrumpets();
                     break;
-                case 13: 
+                case 12: 
                     Trumpets.showTrumpets();
                     break;
                 case 15: 
@@ -53,6 +53,9 @@ function(
                     Trumpets.showTrumpets();
                     break;
                 case 25: 
+                    Trumpets.showTrumpets();
+                    break;
+                case 28: 
                     Animation.endAnimation();
                     break;
                 case 30: 

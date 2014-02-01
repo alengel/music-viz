@@ -127,7 +127,7 @@ body, html {
 
 .trumpets {
     position: absolute;
-    bottom: -190px;
+    bottom: -280px;
     left: -95px;
     width: 100%;
     -webkit-transition: all 1s ease;

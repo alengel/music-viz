@@ -1,5 +1,7 @@
 define(['lib/raphael'], function(){
     'use strict';
+
+    var INTERVAL_INCREASE = 150;
     
     var Trumpets = {
         drawBackground: function(){
@@ -21,46 +23,76 @@ define(['lib/raphael'], function(){
 
             this.trumpets.forEach(function(trumpet){
                 trumpet.attr({'fill':'#FFD700','stroke':'none'});
-                Trumpets.animateTrumpets(trumpet);
+                Trumpets.setupAnimationTimers(trumpet);
             });
         },
 
-        animateTrumpets: function(trumpet){
+        setupAnimationTimers: function(trumpet){
             var that = this;
-            this.animateCount = 0;
-            
-            if(this.animateCount < 3) {
-                this.setAnimationTimeout(trumpet);
-            }
-        
-            // this.hideTrumpets();
+
+            this.trumpetAnimationCounter = 0;
+            this.interval = INTERVAL_INCREASE;
+
+            this.initializeAnimation(trumpet);
+
+            _.delay(function(){
+                if(that.trumpetAnimationCounter < 5){
+                    that.trumpetInterval = setInterval(function(){
+                        that.animateTrumpets(trumpet);
+                    }, INTERVAL_INCREASE * 2);
+                }
+            }, this.interval);
+
+            this.lastAnimation(trumpet);
         },
 
-        setAnimationTimeout: function(trumpet){
+        initializeAnimation: function(trumpet){
+            trumpet.animate({'transform':'s1.2 1.2'}, INTERVAL_INCREASE);
+            
+            _.delay(function(){
+                trumpet.animate({'transform':'s0.8 0.8'}, INTERVAL_INCREASE);
+            }, this.interval);
+        },
+
+        animateTrumpets: function(trumpet){
             var transformBigOptions = {'transform':'s1.2 1.2'},
-            transformSmallOptions = {'transform':'s0.8 0.8'};
+                transformSmallOptions = {'transform':'s0.8 0.8'};
 
-            this.animateCount++;
+            _.delay(function(){
+                trumpet.animate(transformBigOptions, INTERVAL_INCREASE);
+            }, this.interval += INTERVAL_INCREASE);
 
-            this.animateBigInterval = setTimeout(function(){
-                trumpet.animate(transformBigOptions, 150);
-            }, 150);
+            _.delay(function(){
+                trumpet.animate(transformSmallOptions, INTERVAL_INCREASE);
+            }, this.interval += INTERVAL_INCREASE);
 
-            this.animateSmallInterval = setTimeout(function(){
-                trumpet.animate(transformSmallOptions, 150);
-            }, 300);
+            this.trumpetAnimationCounter++;
+        },
+
+        lastAnimation: function(trumpet){
+            var that = this;
+
+            _.delay(function(){
+                trumpet.animate({'transform':'s1.3 1.3'}, INTERVAL_INCREASE);
+            }, 1850);
+
+            _.delay(function(){
+                that.hideTrumpets();
+            }, 2000);
         },
 
         hideTrumpets: function(){
             $('.trumpets').addClass('hidden');
-            window.clearTimeout(this.animateBigInterval);
-            window.clearTimeout(this.animateSmallInterval);
+            window.clearTimeout(this.trumpetInterval);
+            
+            this.trumpetAnimationCounter = 0;
+            this.interval = 0;
         }, 
 
         showTrumpets: function(){
             $('.trumpets').removeClass('hidden');
             Trumpets.trumpets.forEach(function(trumpet){
-                Trumpets.animateTrumpets(trumpet);
+                Trumpets.setupAnimationTimers(trumpet);
             });
         }
     };
