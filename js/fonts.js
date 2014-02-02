@@ -3,7 +3,7 @@ define(['lib/raphael'], function(){
     
     var Fonts = {
         showWelcomeMessage: function(){
-            var $animationContent = $('.animation-content');
+            var $animationContent = $('.welcome-content');
             
             $animationContent.addClass('welcome')
                              .append('<span class="welcome-message">Brighton Music Animation</span>');
@@ -23,7 +23,7 @@ define(['lib/raphael'], function(){
 
         removeMessage: function(){
             $('.welcome').removeClass('welcome rotate move-to-right'); 
-            $('.welcome-message').remove();
+            $('.welcome-content').remove();
         },
 
         showEndMessage: function(){

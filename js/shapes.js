@@ -2,14 +2,14 @@ define([''], function(){
     'use strict';
 
     function getColour(){
-        var random = Math.random();
-
-        return 'rgb(' + Math.floor(random * 255) + ', 0,' + Math.floor(random * 255) + ')';
+        return 'rgb(' + _.random(0, 255) + ',' + _.random(0, 255) + ',' + _.random(0, 255) + ')';
     }
     
     var Shapes = {
         drawBackground: function(){
             var bg;
+
+            Shapes.counter = 0;
 
             $('.animation-content').append('<div class="circles"></div>');
             bg = $('.circles')[0];
@@ -17,23 +17,37 @@ define([''], function(){
             this.paper = new Raphael(bg, '100%', '100%');
         }, 
 
-        drawCircles: function(){
-            var $document = $(document),
-                width = $document.width(),
-                height = $document.height(),
+        drawCircles: function(circleCallCount){
+            var $container = $('.animation-content'),
+                width = $container.width(),
+                height = $container.height(),
                 x = width/2,
                 y = height/2,
-                radius = 1,
-                circle = this.paper.circle(x, y, radius);
+                radius = 1;
+
+            Shapes.animateCircles(x, y, radius, circleCallCount);   
+        },
+
+        animateCircles: function(x, y, radius, circleCallCount){
+            var colour = getColour(),
+                circle = this.paper.circle(x, y, radius),
+                transformSize = 1000 - (circleCallCount * 100);
 
             circle.attr({
-                fill: getColour(),
-                stroke: 'none'
+                fill: colour,
+                stroke: colour,
+                'stroke-width': '1px'
             });
             circle.animate({
-                radius: 100,
-                transform: 'S50'
+                radius: 200,
+                stroke: getColour(),
+                fill: 'none',
+                transform: 'S' + transformSize
             }, 500);
+        },
+
+        removeCircles: function(){
+            $('.circles').addClass('hidden');
         }
     };
 

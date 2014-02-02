@@ -10,7 +10,7 @@ define(['lib/raphael'], function(){
             $('.animation-content').append('<div class="trumpets"></div>');
             bg = $('.trumpets')[0];
 
-            this.paper = new Raphael(bg, '100%', '100%'); 
+            this.paper = new Raphael(bg, '70%', '70%'); 
         },
 
         drawTrumpets: function(){
@@ -83,7 +83,7 @@ define(['lib/raphael'], function(){
 
         hideTrumpets: function(){
             $('.trumpets').addClass('hidden');
-            window.clearTimeout(this.trumpetInterval);
+            window.clearInterval(this.trumpetInterval);
             
             this.trumpetAnimationCounter = 0;
             this.interval = 0;

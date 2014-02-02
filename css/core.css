@@ -178,8 +178,7 @@ body, html {
 
 .trumpets {
     position: absolute;
-    bottom: -280px;
-    left: -95px;
+    bottom: 0;
     width: 100%;
     -webkit-transition: all 1s ease;
     -moz-transition: all 1s;   
@@ -187,16 +186,6 @@ body, html {
     -ms-transition: all 1s ease;
     transition: all 1s ease;
 }
-
-.animate-trumpets {
-    width: 130%;
-    -webkit-transition: all 1s ease;
-    -moz-transition: all 1s;   
-    -o-transition: all 1s ease;  
-    -ms-transition: all 1s ease;
-    transition: all 1s ease;
-}
-
 
 /**
  * CSS for Welcome Message
@@ -245,27 +234,13 @@ body, html {
     transform: translate(100%, 100%);
 }
 
-
-/**
- * CSS for Circle Animation
- */
-
-/*.circles {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-*/
-
 /**
  * CSS for Ending Message
  */
 
 .finish-message {
     position: absolute;
-    left: 42%;
+    left: 40%;
     font-size: xx-large;
 }
 
