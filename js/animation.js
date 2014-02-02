@@ -2,11 +2,13 @@ define([
     'js/trumpets',
     'js/controls',
     'js/fonts',
+    'js/shapes',
     'lib/raphael'], 
 function(
     Trumpets,
     Controls,
-    Fonts
+    Fonts,
+    Shapes
 ){
     'use strict';
 

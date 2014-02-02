@@ -24,6 +24,11 @@ body, html {
     -o-transition: all 1s ease;  
     -ms-transition: all 1s ease;
     transition: all 1s ease;
+    filter: grayscale(0%);
+    -webkit-filter: grayscale(0%);
+    -moz-filter: grayscale(0%);
+    -o-filter: grayscale(0%);
+    -ms-filter: grayscale(0%);
 }
 
 .start {
@@ -35,15 +40,35 @@ body, html {
     -webkit-opacity:.20; 
     -moz-opacity:.20; 
     -o-opacity:.20; 
-    -ms-filter:"alpha(opacity=20)";
-    filter:alpha(opacity=20);
     opacity:.20;
     -webkit-transform:rotate(360deg);
     -moz-transform:rotate(360deg);
     -o-transform:rotate(360deg);
     -ms-transform:rotate(360deg);
     transform:rotate(360deg);
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
 }
+
+.animation-content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/**
+ * CSS for Player Controls
+ */
 
 .big {
     height: 80px;
@@ -93,16 +118,6 @@ body, html {
     margin-top: 16px;
 }
 
-.play-again {
-    display: inline-block;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 24px 0 24px 48px;
-    border-color: transparent transparent transparent #3e3e3e;
-    margin-top: 16px;
-}
-
 .volume {
     background: url('images/volume.png') no-repeat center;
     height: 48px;
@@ -111,12 +126,12 @@ body, html {
     display: inline-block;
 }
 
-.volume-container {
-    display: inline-block;
+.small {
+    margin: 6px 3px -4px 3px;
 }
 
-.small {
-    margin: 3px;
+.volume-container {
+    display: inline-block;
 }
 
 .volume-button {
@@ -135,6 +150,31 @@ body, html {
     border-width: 24px 12px 0 12px;
     border-color: #3e3e3e transparent transparent transparent;
 }
+
+.controls-final {
+    bottom: 25%;
+    left: 0;
+    -webkit-transition: all 1s ease-out;
+    -moz-transition: all 1s;   
+    -o-transition: all 1s ease-out;  
+    -ms-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+}
+
+.play-again {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 24px 0 24px 48px;
+    border-color: transparent transparent transparent #3e3e3e;
+    margin-top: 16px;
+}
+
+
+/**
+ * CSS for Trumpets
+ */
 
 .trumpets {
     position: absolute;
@@ -157,9 +197,10 @@ body, html {
     transition: all 1s ease;
 }
 
-.hidden {
-    display: none;
-}
+
+/**
+ * CSS for Welcome Message
+ */
 
 .welcome {
     margin-top: 300px;
@@ -204,6 +245,24 @@ body, html {
     transform: translate(100%, 100%);
 }
 
+
+/**
+ * CSS for Circle Animation
+ */
+
+/*.circles {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+*/
+
+/**
+ * CSS for Ending Message
+ */
+
 .finish-message {
     position: absolute;
     left: 42%;
@@ -213,16 +272,6 @@ body, html {
 .final-position {
     position: relative;
     margin-top: 265px;
-    -webkit-transition: all 1s ease-out;
-    -moz-transition: all 1s;   
-    -o-transition: all 1s ease-out;  
-    -ms-transition: all 1s ease-out;
-    transition: all 1s ease-out;
-}
-
-.controls-final {
-    bottom: 25%;
-    left: 0;
     -webkit-transition: all 1s ease-out;
     -moz-transition: all 1s;   
     -o-transition: all 1s ease-out;  
