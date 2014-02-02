@@ -1,15 +1,15 @@
-define([''], function(){
+define([], function(){
     'use strict';
 
     function getColour(){
         return 'rgb(' + _.random(0, 255) + ',' + _.random(0, 255) + ',' + _.random(0, 255) + ')';
     }
     
-    var Shapes = {
+    var Circles = {
         drawBackground: function(){
             var bg;
 
-            Shapes.counter = 0;
+            Circles.counter = 0;
 
             $('.animation-content').append('<div class="circles"></div>');
             bg = $('.circles')[0];
@@ -25,7 +25,7 @@ define([''], function(){
                 y = height/2,
                 radius = 1;
 
-            Shapes.animateCircles(x, y, radius, circleCallCount);   
+            Circles.animateCircles(x, y, radius, circleCallCount);   
         },
 
         animateCircles: function(x, y, radius, circleCallCount){
@@ -43,13 +43,13 @@ define([''], function(){
                 stroke: getColour(),
                 fill: 'none',
                 transform: 'S' + transformSize
-            }, 500);
+            }, 800);
         },
 
-        removeCircles: function(){
-            $('.circles').addClass('hidden');
+        remove: function(){
+            $('.circles').remove();
         }
     };
 
-    return Shapes;
+    return Circles;
 });

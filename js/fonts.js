@@ -1,4 +1,4 @@
-define(['lib/raphael'], function(){
+define([], function(){
     'use strict';
     
     var Fonts = {

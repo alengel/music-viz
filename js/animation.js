@@ -2,13 +2,13 @@ define([
     'js/trumpets',
     'js/controls',
     'js/fonts',
-    'js/shapes',
+    'js/circles',
     'lib/raphael'], 
 function(
     Trumpets,
     Controls,
     Fonts,
-    Shapes
+    Circles
 ){
     'use strict';
 
@@ -37,7 +37,7 @@ function(
                     break;
                 case 4:
                     Fonts.moveMessage();
-                    Shapes.drawBackground();
+                    Circles.drawBackground();
                     Animation.drawCircles();
                     break;
                 case 6:
@@ -49,6 +49,7 @@ function(
                     break;
                 case 12: 
                     Trumpets.showTrumpets();
+                    Circles.remove();
                     break;
                 case 15: 
                     Trumpets.showTrumpets();
@@ -73,7 +74,7 @@ function(
             
             Animation.circleInterval = setInterval(function(){
                 if(circleCallCount < 10){
-                    Shapes.drawCircles(circleCallCount);
+                    Circles.drawCircles(circleCallCount);
                     circleCallCount++;
                 } else {
                     clearInterval(Animation.circleInterval);
@@ -102,8 +103,6 @@ function(
         resetAnimation: function(){
             Animation.stopTimer();
             Animation.counter = 0;
-
-            $('.animation-content').empty();
         }
     };
 

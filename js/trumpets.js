@@ -1,4 +1,4 @@
-define(['lib/raphael'], function(){
+define([], function(){
     'use strict';
 
     var INTERVAL_INCREASE = 150;
@@ -77,7 +77,7 @@ define(['lib/raphael'], function(){
             }, 1850);
 
             _.delay(function(){
-                that.hideTrumpets();
+                that.hideTrumpets(trumpet);
             }, 2000);
         },
 

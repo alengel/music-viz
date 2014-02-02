@@ -22,6 +22,7 @@ define([
             $('.audioFile').on('stop-audio', function() {
                 Audio.stopAudio();
                 Animation.stopTimer();
+                $('.animation-content').empty();
             });
         },
 
