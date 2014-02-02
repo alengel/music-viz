@@ -2,11 +2,13 @@ define([
     'js/trumpets',
     'js/controls',
     'js/fonts',
+    'js/circles',
     'lib/raphael'], 
 function(
     Trumpets,
     Controls,
-    Fonts
+    Fonts,
+    Circles
 ){
     'use strict';
 
@@ -35,6 +37,8 @@ function(
                     break;
                 case 4:
                     Fonts.moveMessage();
+                    Circles.drawBackground();
+                    Animation.drawCircles();
                     break;
                 case 6:
                     Fonts.removeMessage();
@@ -45,6 +49,7 @@ function(
                     break;
                 case 12: 
                     Trumpets.showTrumpets();
+                    Circles.remove();
                     break;
                 case 15: 
                     Trumpets.showTrumpets();
@@ -59,9 +64,22 @@ function(
                     Animation.endAnimation();
                     break;
                 case 30: 
-                    Animation.stopTimer();
+                    Animation.resetAnimation();
                     break;
             }
+        },
+
+        drawCircles: function(){
+            var circleCallCount = 1;
+            
+            Animation.circleInterval = setInterval(function(){
+                if(circleCallCount < 10){
+                    Circles.drawCircles(circleCallCount);
+                    circleCallCount++;
+                } else {
+                    clearInterval(Animation.circleInterval);
+                }
+            }, 500);
         },
 
         endAnimation: function(){
@@ -77,14 +95,14 @@ function(
             Animation.refreshInterval = setInterval(Animation.startAnimation, 1000);
         },
 
-        resetTimer: function(){
-            Animation.stopTimer();
-            Animation.counter = 0;
-        },
-
         stopTimer: function(){
             clearInterval(Animation.lowerVolumeInterval);
-            clearInterval(Animation.refreshInterval);
+            clearInterval(Animation.refreshInterval);            
+        },
+
+        resetAnimation: function(){
+            Animation.stopTimer();
+            Animation.counter = 0;
         }
     };
 
