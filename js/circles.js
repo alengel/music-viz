@@ -15,6 +15,19 @@ define([], function(){
             bg = $('.circles')[0];
 
             this.paper = new Raphael(bg, '100%', '100%');
+        },
+
+        setUpAnimationInterval: function(){
+            var circleCallCount = 1;
+            
+            Circles.circleInterval = setInterval(function(){
+                if(circleCallCount < 10){
+                    Circles.drawCircles(circleCallCount);
+                    circleCallCount++;
+                } else {
+                    clearInterval(Circles.circleInterval);
+                }
+            }, 500);
         }, 
 
         drawCircles: function(circleCallCount){
@@ -44,6 +57,10 @@ define([], function(){
                 fill: 'none',
                 transform: 'S' + transformSize
             }, 800);
+        },
+
+        pauseAnimation: function(){
+            clearInterval(Circles.circleInterval);
         },
 
         remove: function(){

@@ -234,6 +234,18 @@ body, html {
     transform: translate(100%, 100%);
 }
 
+
+
+/**
+ * CSS for Video Player
+ */
+
+.video-player{
+    position: absolute;
+    left: 32%;
+    top: 25%;
+}
+
 /**
  * CSS for Ending Message
  */
