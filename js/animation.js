@@ -38,9 +38,6 @@ function(
                     Circles.drawBackground();
                     Circles.setUpAnimationInterval();
                     break;
-                case 6:
-                    
-                    break;
                 case 9:
                     Trumpets.drawBackground(); 
                     Trumpets.drawTrumpets();
@@ -48,10 +45,12 @@ function(
                 case 10:
                     Fonts.removeMessage();
                     Video.setup();
-                    // Curtains.drawCurtains();
                     break;
                 case 12: 
                     Trumpets.showTrumpets();
+                    break;
+                case 14:
+                    Curtains.drawCurtains();
                     break;
                 case 15: 
                     Trumpets.showTrumpets();

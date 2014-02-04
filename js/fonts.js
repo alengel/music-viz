@@ -1,4 +1,8 @@
-define([], function(){
+define([
+    'js/controls'
+], function(
+    Controls
+){
     'use strict';
     
     var Fonts = {
@@ -27,17 +31,16 @@ define([], function(){
         },
 
         showEndMessage: function(){
-            var $animationContent = $('.animation-content');
+            var $animationContent = $('.content');
             
             $('.bg-content').removeClass('start');
             $animationContent.append('<div class="finish-message"><span>Reload Animation?</span></div>');
 
             _.delay(function(){
                 $('.finish-message').addClass('final-position');
-                $('.toggle-button').removeClass('small play').addClass('play-again');
-                $('.volume-container').removeClass('small');
+                $('.toggle-button').removeClass('play').addClass('play-again');
 
-                $('.controls').removeClass('mini').addClass('controls-final');
+                Controls.moveControlsBack();
 
                 $('.play-again').on('click', function(){
                     $('.toggle-button').trigger('replay');
