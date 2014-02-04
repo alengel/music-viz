@@ -234,6 +234,69 @@ body, html {
     transform: translate(100%, 100%);
 }
 
+
+
+/**
+ * CSS for Video Player
+ */
+
+.video-container{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.video-bg {
+    width: 2px; 
+    height: 2px; 
+    text-align: center;
+    margin: 15% auto 0 auto;
+    -webkit-border-radius: 1px; 
+    -moz-border-radius: 1px;
+    -ms-border-radius: 1px;
+    -o-border-radius: 1px;
+    border-radius: 1px;
+    background-color: #ae3e3e;
+    -webkit-transition: all 1s ease-out;
+    -moz-transition: all 1s;   
+    -o-transition: all 1s ease-out;  
+    -ms-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+}
+
+.video-bg.circle {
+    width: 560px; 
+    height: 560px; 
+    -webkit-border-radius: 280px; 
+    -moz-border-radius: 280px;
+    -ms-border-radius: 280px;
+    -o-border-radius: 280px;
+    border-radius: 280px;
+    -webkit-transition: all 1s ease-out;
+    -moz-transition: all 1s;   
+    -o-transition: all 1s ease-out;  
+    -ms-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+}
+
+.video-bg.rectangle {
+    width: 520px; 
+    height: 360px; 
+    background-color: #555555;
+    -webkit-border-radius: 20px; 
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    border-radius: 20px;
+    -webkit-transition: all 1s ease-out;
+    -moz-transition: all 1s;   
+    -o-transition: all 1s ease-out;  
+    -ms-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+}
+
 /**
  * CSS for Ending Message
  */

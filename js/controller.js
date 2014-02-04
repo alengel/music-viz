@@ -13,10 +13,11 @@ define([
 
             $('.toggle-button').on('replay', this.reloadAnimation);
 
-            $('.audioFile').on('play-audio', Controller.playAnimation());
+            $('.audioFile').on('play-audio', Controller.playAnimation);
 
             $('.audioFile').on('pause-audio', function() {
-                 //TODO pause animation
+                Controller.hasPlayedBefore = true;
+                Animation.pauseAnimations();
             });
 
             $('.audioFile').on('stop-audio', function() {
@@ -36,8 +37,13 @@ define([
             },
             transEndEventName = transEndEventNames[ Modernizr.prefixed('transition') ];
 
+            if(Controller.hasPlayedBefore){
+                Animation.continuePlaying();
+                return;
+            }
+
             $('.bg-content').one('transitionend', function() {
-                Animation.initialize();
+                Animation.startTimer();
             });
         },
 

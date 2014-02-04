@@ -3,12 +3,14 @@ define([
     'js/controls',
     'js/fonts',
     'js/circles',
+    'js/video',
     'lib/raphael'], 
 function(
     Trumpets,
     Controls,
     Fonts,
-    Circles
+    Circles,
+    Video
 ){
     'use strict';
 
@@ -16,10 +18,6 @@ function(
 
         refreshInterval: null,
         counter: 0,
-
-        initialize: function(){
-            this.startTimer();
-        },        
 
         startAnimation: function(){
             Animation.counter++;
@@ -38,24 +36,31 @@ function(
                 case 4:
                     Fonts.moveMessage();
                     Circles.drawBackground();
-                    Animation.drawCircles();
+                    Circles.setUpAnimationInterval();
                     break;
                 case 6:
-                    Fonts.removeMessage();
+                    
                     break;
                 case 9:
                     Trumpets.drawBackground(); 
                     Trumpets.drawTrumpets();
                     break;
+                case 10:
+                    Fonts.removeMessage();
+                    Video.setup();
+                    // Curtains.drawCurtains();
+                    break;
                 case 12: 
                     Trumpets.showTrumpets();
-                    Circles.remove();
                     break;
                 case 15: 
                     Trumpets.showTrumpets();
                     break;
                 case 19: 
                     Trumpets.showTrumpets();
+                    break;
+                case 20:
+                    Animation.clearAnimations();
                     break;
                 case 25: 
                     Trumpets.showTrumpets();
@@ -69,17 +74,14 @@ function(
             }
         },
 
-        drawCircles: function(){
-            var circleCallCount = 1;
-            
-            Animation.circleInterval = setInterval(function(){
-                if(circleCallCount < 10){
-                    Circles.drawCircles(circleCallCount);
-                    circleCallCount++;
-                } else {
-                    clearInterval(Animation.circleInterval);
-                }
-            }, 500);
+        pauseAnimations: function(){
+            Circles.pauseAnimation();
+            Video.pause();
+        },
+
+        continuePlaying: function(){
+            Video.play();
+            Animation.startTimer();
         },
 
         endAnimation: function(){
