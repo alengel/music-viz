@@ -21,7 +21,7 @@ define([], function(){
             var circleCallCount = 1;
             
             Circles.circleInterval = setInterval(function(){
-                if(circleCallCount < 10){
+                if(circleCallCount < 9){
                     Circles.drawCircles(circleCallCount);
                     circleCallCount++;
                 } else {
@@ -44,7 +44,7 @@ define([], function(){
         animateCircles: function(x, y, radius, circleCallCount){
             var colour = getColour(),
                 circle = this.paper.circle(x, y, radius),
-                transformSize = 1000 - (circleCallCount * 100);
+                transformSize = 900 - (circleCallCount * 100);
 
             circle.attr({
                 fill: colour,

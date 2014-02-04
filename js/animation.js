@@ -19,10 +19,6 @@ function(
         refreshInterval: null,
         counter: 0,
 
-        initialize: function(){
-            this.startTimer();
-        },        
-
         startAnimation: function(){
             Animation.counter++;
             console.log(Animation.counter);
@@ -50,13 +46,12 @@ function(
                     Trumpets.drawTrumpets();
                     break;
                 case 10:
-                    Animation.clearAnimations();
-                    Video.initialize();
+                    Fonts.removeMessage();
+                    Video.setup();
                     // Curtains.drawCurtains();
                     break;
                 case 12: 
                     Trumpets.showTrumpets();
-                    Circles.remove();
                     break;
                 case 15: 
                     Trumpets.showTrumpets();
@@ -84,13 +79,9 @@ function(
             Video.pause();
         },
 
-        clearAnimations: function(){
-            Fonts.removeMessage();
-        },
-
         continuePlaying: function(){
-            // Animation.drawCircles();
             Video.play();
+            Animation.startTimer();
         },
 
         endAnimation: function(){

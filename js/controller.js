@@ -43,7 +43,7 @@ define([
             }
 
             $('.bg-content').one('transitionend', function() {
-                Animation.initialize();
+                Animation.startTimer();
             });
         },
 
