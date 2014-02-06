@@ -70,6 +70,10 @@ body, html {
  * CSS for Player Controls
  */
 
+.controls {
+    z-index: 10;
+}
+
 .big {
     height: 80px;
     width: 400px;
@@ -297,6 +301,23 @@ body, html {
     -ms-transition: all 1s ease-out;
     transition: all 1s ease-out;
 }
+
+
+
+/**
+ * CSS for Equalizer
+ */
+
+.equalizer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 4;
+}
+
+
 
 /**
  * CSS for Ending Message
