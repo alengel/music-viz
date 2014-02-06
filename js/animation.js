@@ -4,13 +4,15 @@ define([
     'js/fonts',
     'js/circles',
     'js/video',
+    'js/equalizer',
     'lib/raphael'], 
 function(
     Trumpets,
     Controls,
     Fonts,
     Circles,
-    Video
+    Video,
+    Equalizer
 ){
     'use strict';
 
@@ -36,34 +38,29 @@ function(
                 case 4:
                     Fonts.moveMessage();
                     Circles.drawBackground();
-                    Circles.setUpAnimationInterval();
-                    break;
-                case 6:
-                    
                     break;
                 case 9:
                     Trumpets.drawBackground(); 
-                    Trumpets.drawTrumpets();
                     break;
                 case 10:
                     Fonts.removeMessage();
                     Video.setup();
-                    // Curtains.drawCurtains();
                     break;
                 case 12: 
                     Trumpets.showTrumpets();
                     break;
-                case 15: 
+                case 15:
                     Trumpets.showTrumpets();
+                    break;
+                case 16: 
+                    Equalizer.drawEqualizer();
                     break;
                 case 19: 
                     Trumpets.showTrumpets();
                     break;
-                case 20:
-                    Animation.clearAnimations();
-                    break;
                 case 25: 
                     Trumpets.showTrumpets();
+                    Circles.remove();
                     break;
                 case 28: 
                     Animation.endAnimation();

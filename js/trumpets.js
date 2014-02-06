@@ -11,6 +11,8 @@ define([], function(){
             bg = $('.trumpets')[0];
 
             this.paper = new Raphael(bg, '70%', '70%'); 
+
+            Trumpets.drawTrumpets();
         },
 
         drawTrumpets: function(){

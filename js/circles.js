@@ -15,6 +15,8 @@ define([], function(){
             bg = $('.circles')[0];
 
             this.paper = new Raphael(bg, '100%', '100%');
+
+            Circles.setUpAnimationInterval();
         },
 
         setUpAnimationInterval: function(){
