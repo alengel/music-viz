@@ -3,7 +3,7 @@ define([''], function(){
 
     var Controls = {
         moveControlsAside: function(){
-            $('.controls').removeClass('.big').addClass('mini');
+            $('.controls').removeClass('big').addClass('mini');
             $('.toggle-button, .volume, .volume-container').addClass('small');
         },
 

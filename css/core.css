@@ -72,18 +72,21 @@ body, html {
 
 .controls {
     z-index: 10;
+    background: rgb(200, 54, 54);
+    background: rgba(200, 54, 54, 0.5);
+    border: 1px solid #3e3e3e;
+    height: 80px; 
+    margin: 24px auto 0 auto;
+    text-align: center;
+    position: absolute;
+    display: inline-block;
 }
 
 .big {
-    height: 80px;
-    width: 400px;
-    background: rgb(200, 54, 54);
-    background: rgba(200, 54, 54, 0.5); 
-    margin: 24px auto 0 auto;
-    text-align: center;
-    border: 1px solid #3e3e3e;
-    position: absolute;    
-    right: 36%;
+    width: 30%;
+    min-width: 200px;
+    left: 35%;
+    right: 35%;
     bottom: 25%;
     -webkit-transition: all 1s ease-out;
     -moz-transition: all 1s;   
@@ -93,12 +96,7 @@ body, html {
 }
 
 .mini {
-    width: 100px;
-    height: 120px;
-    background: rgb(200, 54, 54);
-    background: rgba(200, 54, 54, 0.5); 
-    border: 1px solid #3e3e3e;
-    position: absolute;
+    width: 20%;
     right: 6px;
     bottom: 6px;
     -webkit-transition: all 1s ease-out;
@@ -124,7 +122,6 @@ body, html {
 }
 
 .play {
-    display: inline-block;
     width: 10px;
     height: 48px;
     border-right: 14px solid #3e3e3e;
@@ -141,7 +138,8 @@ body, html {
 }
 
 .small {
-    margin: 6px 3px -4px 3px;
+    margin: 12px 6px -4px 6px;
+    float: left;
 }
 
 .volume-container {
