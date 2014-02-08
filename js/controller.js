@@ -6,6 +6,7 @@ define([
     'js/circles',
     'js/video',
     'js/equalizer',
+    'js/photobooth',
     'lib/raphael',
     'lib/dancer'
 ], function(
@@ -15,7 +16,8 @@ define([
     Fonts,
     Circles,
     Video,
-    Equalizer
+    Equalizer,
+    Photobooth
 ){
     'use strict';
 
@@ -52,8 +54,22 @@ define([
                 kick;
 
             Controller.dancer = new Dancer();
+            kick = Controller.dancer.createKick({
+                frequency: 5,
+                threshold: 0.2,
+                onKick: function ( mag ) {
+                    // console.log(this.getTime());
+                },
+                offKick: function ( mag ) {
+                    // console.log(this.getTime());
+                }
+            });
+            kick.on();
 
             Controller.dancer
+            .between(0, 30, function() {
+                console.log(this.getTime());
+            })
             .onceAt(1, function() {
                 Fonts.showWelcomeMessage();
             })
@@ -68,33 +84,48 @@ define([
                 Circles.drawBackground();
             })
             .onceAt(9, function() {
-                Trumpets.drawBackground(); 
+                Video.setup();
             })
             .onceAt(10, function() {
                 Fonts.removeMessage();
-                Video.setup();
+                Trumpets.drawBackground();
             })
             .onceAt(12, function() {
+                Photobooth.getBottomMiddle();
+            })
+            .onceAt(13, function() {
                 Trumpets.showTrumpets();
+                Photobooth.getBottomLeft();
+            })
+            .onceAt(14, function() {
+                Photobooth.getBottomRight();
             })
             .onceAt(15, function() {
-                Trumpets.showTrumpets();
+                Photobooth.getCentreLeft();
             })
             .onceAt(16, function() {
-                Equalizer.drawEqualizer();
+                Photobooth.getCentreRight();
+            })
+            .onceAt(17, function() {
+                Photobooth.getTopLeft();
+            })
+            .onceAt(18, function() {
+                Trumpets.showTrumpets();
+                Photobooth.getTopRight();
             })
             .onceAt(19, function() {
+                Photobooth.getTopMiddle();
+            })
+            .onceAt(20, function() {
                 Trumpets.showTrumpets();
             })
-            .onceAt(25, function() {
-                Trumpets.showTrumpets();
+            .onceAt(23, function(){
                 Circles.remove();
+                Equalizer.drawEqualizer();
             })
-            .onceAt(28, function() {
+            .onceAt(27, function() {
                 Controller.endAnimation();
-            })
-            .onceAt(30, function() {
-                Fonts.showEndMessage();
+                kick.off();
             }).load(audio);
         },
 
@@ -118,19 +149,21 @@ define([
             }
         },
 
-        resetAnimation: function(){
-            Controller.dancer.pause();
-            Controller.dancer.currentTime = 0;
-            $('.animation-content').empty();
-        },
-
         endAnimation: function(){
             Controller.lowerVolumeInterval = setInterval(Controls.lowerVolume, 500);
+            $('.animation-content').addClass('disappear');
 
             _.delay(function(){
                 $('.audioFile').trigger('stop-audio');
                 window.clearInterval(Controller.lowerVolumeInterval);
-            }, 2000);
+                Fonts.showEndMessage();
+            }, 3000);
+        },
+
+        resetAnimation: function(){
+            Controller.dancer.pause();
+            Controller.dancer.currentTime = 0;
+            $('.animation-content').empty();
         },
 
         reloadAnimation: function(){

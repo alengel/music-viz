@@ -24,7 +24,7 @@ define([], function(){
             this.trumpets.push(upperTrumpet, middleTrumpet, lowerTrumpet);
 
             this.trumpets.forEach(function(trumpet){
-                trumpet.attr({'fill':'#FFD700','stroke':'none'});
+                trumpet.attr({'fill':'#FFD700','stroke':'1px'});
                 Trumpets.setupAnimationTimers(trumpet);
             });
         },
@@ -80,12 +80,12 @@ define([], function(){
 
             _.delay(function(){
                 that.hideTrumpets(trumpet);
-            }, 2000);
+            }, 3000);
         },
 
         hideTrumpets: function(){
             $('.trumpets').addClass('hidden');
-            window.clearInterval(this.trumpetInterval);
+            window.clearInterval(Trumpets.trumpetInterval);
             
             this.trumpetAnimationCounter = 0;
             this.interval = 0;
