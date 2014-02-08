@@ -52,6 +52,17 @@ define([
                 kick;
 
             Controller.dancer = new Dancer();
+            kick = Controller.dancer.createKick({
+                frequency: 5,
+                threshold: 0.2,
+                onKick: function ( mag ) {
+                    console.log(this.getTime());
+                },
+                offKick: function ( mag ) {
+                    console.log(this.getTime());
+                }
+            });
+            kick.on();
 
             Controller.dancer
             .onceAt(1, function() {
@@ -67,34 +78,30 @@ define([
                 Fonts.moveMessage();
                 Circles.drawBackground();
             })
-            .onceAt(9, function() {
-                Trumpets.drawBackground(); 
-            })
             .onceAt(10, function() {
                 Fonts.removeMessage();
+                Trumpets.drawBackground(); 
                 Video.setup();
             })
-            .onceAt(12, function() {
+            .onceAt(14, function() {
                 Trumpets.showTrumpets();
             })
-            .onceAt(15, function() {
+            .onceAt(18, function() {
                 Trumpets.showTrumpets();
             })
-            .onceAt(16, function() {
+            .onceAt(20, function() {
+                Trumpets.showTrumpets();
+            })
+            .onceAt(23, function(){
+                $('.circles').addClass('disappear');
                 Equalizer.drawEqualizer();
             })
-            .onceAt(19, function() {
-                Trumpets.showTrumpets();
-            })
-            .onceAt(25, function() {
-                Trumpets.showTrumpets();
-                Circles.remove();
+            .onceAt(24, function() {
+
             })
             .onceAt(28, function() {
                 Controller.endAnimation();
-            })
-            .onceAt(30, function() {
-                Fonts.showEndMessage();
+                kick.off();
             }).load(audio);
         },
 
@@ -130,6 +137,7 @@ define([
             _.delay(function(){
                 $('.audioFile').trigger('stop-audio');
                 window.clearInterval(Controller.lowerVolumeInterval);
+                Fonts.showEndMessage();
             }, 2000);
         },
 

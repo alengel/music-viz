@@ -96,7 +96,7 @@ body, html {
 }
 
 .mini {
-    width: 20%;
+    width: 13%;
     right: 6px;
     bottom: 6px;
     -webkit-transition: all 1s ease-out;
@@ -230,11 +230,11 @@ body, html {
     -ms-filter:"alpha(opacity=20)";
     filter:alpha(opacity=20);
     opacity:.20;
-    -webkit-transform: translate(100%, 100%);
-    -moz-transform: translate(100%, 100%);
-    -ms-transform: translate(100%, 100%);
-    -o-transform: translate(100%, 100%);
-    transform: translate(100%, 100%);
+    -webkit-transform: translate(100%, 0);
+    -moz-transform: translate(100%, 0);
+    -ms-transform: translate(100%, 0);
+    -o-transform: translate(100%, 0);
+    transform: translate(100%, 0);
 }
 
 
@@ -301,6 +301,24 @@ body, html {
 }
 
 
+/**
+ * CSS for Circles
+ */
+
+.disappear {
+    -webkit-opacity:0; 
+    -moz-opacity:0; 
+    -o-opacity:0; 
+    -ms-filter:"alpha(opacity=0)";
+    filter:alpha(opacity=0);
+    opacity:0;
+    -webkit-transition: all 3s;
+    -moz-transition: all 3s;   
+    -o-transition: all 3s;  
+    -ms-transition: all 3s;
+    transition: all 3s;
+}
+
 
 /**
  * CSS for Equalizer
@@ -323,8 +341,11 @@ body, html {
 
 .finish-message {
     position: absolute;
-    left: 40.5%;
+    left: 35%;
+    right: 35%;
+    width: 30%;
     font-size: xx-large;
+    text-align: center;
 }
 
 .final-position {
