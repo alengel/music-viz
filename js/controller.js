@@ -1,33 +1,37 @@
 define([
     'js/audio',
-    'js/animation'
+    'js/trumpets',
+    'js/controls',
+    'js/fonts',
+    'js/circles',
+    'js/video',
+    'js/equalizer',
+    'lib/raphael',
+    'lib/dancer'
 ], function(
     Audio,
-    Animation
+    Trumpets,
+    Controls,
+    Fonts,
+    Circles,
+    Video,
+    Equalizer
 ){
     'use strict';
 
     var Controller = {
         initialize: function(){
-            Audio.initialize();
-
             $('.toggle-button').on('replay', this.reloadAnimation);
+            $('.audioFile').on('play-audio', this.playAnimation);
+            $('.audioFile').on('pause-audio', this.pauseAnimation);
+            $('.audioFile').on('stop-audio', this.resetAnimation);
 
-            $('.audioFile').on('play-audio', Controller.playAnimation);
-
-            $('.audioFile').on('pause-audio', function() {
-                Controller.hasPlayedBefore = true;
-                Animation.pauseAnimations();
-            });
-
-            $('.audioFile').on('stop-audio', function() {
-                Audio.stopAudio();
-                Animation.stopTimer();
-                $('.animation-content').empty();
-            });
+            Audio.initialize();
+            this.setupTransitionEnd();
+            this.setUpAnimation();
         },
 
-        playAnimation: function(){
+        setupTransitionEnd: function(){
             var transEndEventNames = {
                 'WebkitTransition' : 'webkitTransitionEnd',
                 'MozTransition'    : 'transitionend',
@@ -37,19 +41,101 @@ define([
             },
             transEndEventName = transEndEventNames[ Modernizr.prefixed('transition') ];
 
-            if(Controller.hasPlayedBefore){
-                Animation.continuePlaying();
-                return;
+            $('.bg-content').one('transitionend', function() {
+                Controller.playAnimation();  
+            });
+        },
+
+        setUpAnimation: function(){
+            var audio  = document.getElementsByTagName('audio')[0],
+                counter = 0,
+                kick;
+
+            Controller.dancer = new Dancer();
+
+            Controller.dancer
+            .onceAt(1, function() {
+                Fonts.showWelcomeMessage();
+            })
+            .onceAt(2, function() {
+                Fonts.changeWelcomeMessage();
+            })
+            .onceAt(3, function() {
+                Fonts.rotateWelcomeMessage();
+            })
+            .onceAt(4, function() {
+                Fonts.moveMessage();
+                Circles.drawBackground();
+            })
+            .onceAt(9, function() {
+                Trumpets.drawBackground(); 
+            })
+            .onceAt(10, function() {
+                Fonts.removeMessage();
+                Video.setup();
+            })
+            .onceAt(12, function() {
+                Trumpets.showTrumpets();
+            })
+            .onceAt(15, function() {
+                Trumpets.showTrumpets();
+            })
+            .onceAt(16, function() {
+                Equalizer.drawEqualizer();
+            })
+            .onceAt(19, function() {
+                Trumpets.showTrumpets();
+            })
+            .onceAt(25, function() {
+                Trumpets.showTrumpets();
+                Circles.remove();
+            })
+            .onceAt(28, function() {
+                Controller.endAnimation();
+            })
+            .onceAt(30, function() {
+                Fonts.showEndMessage();
+            }).load(audio);
+        },
+
+        playAnimation: function(){
+            Controller.dancer.play();
+
+            if($('video').length){
+                Video.play();
+            }
+        },
+
+        pauseAnimation: function(){
+            Controller.dancer.pause();
+                
+            if($('video').length){
+                Video.pause();
             }
 
-            $('.bg-content').one('transitionend', function() {
-                Animation.startTimer();
-            });
+            if(Circles){
+                Circles.pauseAnimation();
+            }
+        },
+
+        resetAnimation: function(){
+            Controller.dancer.pause();
+            Controller.dancer.currentTime = 0;
+            $('.animation-content').empty();
+        },
+
+        endAnimation: function(){
+            Controller.lowerVolumeInterval = setInterval(Controls.lowerVolume, 500);
+
+            _.delay(function(){
+                $('.audioFile').trigger('stop-audio');
+                window.clearInterval(Controller.lowerVolumeInterval);
+            }, 2000);
         },
 
         reloadAnimation: function(){
             location.reload();
-        }
+        },
     };
 
     return Controller;

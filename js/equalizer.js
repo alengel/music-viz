@@ -36,8 +36,6 @@ define([], function(){
             _(numberOfBars).times(function(){
                 Equalizer.drawRectangle(x, barWidth);
                 x += barWidth;
-
-                console.log('xxxxxx ', x);
             });
         },
 
