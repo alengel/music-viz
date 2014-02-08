@@ -1,9 +1,7 @@
 define([
-    'js/controls',
-    'js/animation'], 
+    'js/controls'], 
 function(
-    Controls,
-    Animation
+    Controls
 ){
     'use strict';
 
@@ -33,14 +31,9 @@ function(
             $('.toggle-button').addClass('play').removeClass('pause');
             $('.bg-content').addClass('start');
             
-            $audio[0].play();
             $audio.trigger('play-audio');
 
             Controls.moveControlsAside();
-
-            if(Animation.counter !== 0){
-                Animation.startTimer();
-            }
         },
 
         pauseAudio: function(){
@@ -48,18 +41,9 @@ function(
 
             $('.toggle-button').removeClass('play').addClass('pause');
 
-            $audio[0].pause();
             $audio.trigger('pause-audio');
                         
             Controls.moveControlsBack();
-            Animation.stopTimer();
-        },
-
-        stopAudio: function(){
-            var $audio = $('.audioFile')[0];
-
-            $audio.pause();
-            $audio.currentTime = 0;
         }
     };
 
