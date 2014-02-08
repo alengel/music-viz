@@ -252,31 +252,27 @@ body, html {
 }
 
 .video-bg {
-    width: 2px; 
-    height: 2px; 
+    width: 1%; 
+    height: 1%;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5); 
     text-align: center;
-    margin: 15% auto 0 auto;
+    margin: 16% auto 0 auto;
     -webkit-border-radius: 1px; 
     -moz-border-radius: 1px;
     -ms-border-radius: 1px;
     -o-border-radius: 1px;
     border-radius: 1px;
-    background-color: #ae3e3e;
-    -webkit-transition: all 1s ease-out;
-    -moz-transition: all 1s;   
-    -o-transition: all 1s ease-out;  
-    -ms-transition: all 1s ease-out;
-    transition: all 1s ease-out;
 }
 
 .video-bg.circle {
-    width: 560px; 
-    height: 560px; 
-    -webkit-border-radius: 280px; 
-    -moz-border-radius: 280px;
-    -ms-border-radius: 280px;
-    -o-border-radius: 280px;
-    border-radius: 280px;
+    width: 46%; 
+    height: 46%; 
+    -webkit-border-radius: 23%; 
+    -moz-border-radius: 23%;
+    -ms-border-radius: 23%;
+    -o-border-radius: 23%;
+    border-radius: 23%;
     -webkit-transition: all 1s ease-out;
     -moz-transition: all 1s;   
     -o-transition: all 1s ease-out;  
@@ -285,9 +281,8 @@ body, html {
 }
 
 .video-bg.rectangle {
-    width: 520px; 
-    height: 360px; 
-    background-color: #555555;
+    width: 46%;
+    height: 45.5%;
     -webkit-border-radius: 20px; 
     -moz-border-radius: 20px;
     -ms-border-radius: 20px;
@@ -298,25 +293,6 @@ body, html {
     -o-transition: all 1s ease-out;  
     -ms-transition: all 1s ease-out;
     transition: all 1s ease-out;
-}
-
-
-/**
- * CSS for Circles
- */
-
-.disappear {
-    -webkit-opacity:0; 
-    -moz-opacity:0; 
-    -o-opacity:0; 
-    -ms-filter:"alpha(opacity=0)";
-    filter:alpha(opacity=0);
-    opacity:0;
-    -webkit-transition: all 3s;
-    -moz-transition: all 3s;   
-    -o-transition: all 3s;  
-    -ms-transition: all 3s;
-    transition: all 3s;
 }
 
 
@@ -334,6 +310,155 @@ body, html {
 }
 
 
+/**
+ * CSS for Photobooth
+ */
+
+.photobooth {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.bottom {
+    width: 33%;
+    height: 35%;
+    bottom: 0;
+    position: absolute;
+}
+
+.bottom-middle {
+    left: -33%;
+    width: 34%;
+    background: url('images/girl.jpg') no-repeat center;
+}
+
+.bottom-middle-in {
+    left: 33%;
+    right: 33%;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s;   
+    -o-transition: all 0.5s ease-out;  
+    -ms-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+
+.bottom-left {
+    left: -33%;
+    background: url('images/lion.jpg') no-repeat center;
+}
+
+.bottom-left-in {
+    left: 0;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s;   
+    -o-transition: all 0.5s ease-out;  
+    -ms-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+
+.bottom-right {
+    right: -33%;
+    background: url('images/boy.jpg') no-repeat center;
+}
+
+.bottom-right-in {
+    right: 0;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s;   
+    -o-transition: all 0.5s ease-out;  
+    -ms-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+
+.centre {
+    width: 30%;
+    height: 35%;
+    position: absolute;
+}
+
+.centre-left {
+    top: -30%;
+    background: url('images/sea.jpg') no-repeat center;
+}
+
+.centre-left-in {
+    top: 30%;
+    left: 0;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s;   
+    -o-transition: all 0.5s ease-out;  
+    -ms-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+
+.centre-right {
+    top: -33%;
+    background: url('images/bandstand.jpg') no-repeat center;
+}
+
+.centre-right-in {
+    top: 30%;
+    right: 0;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s;   
+    -o-transition: all 0.5s ease-out;  
+    -ms-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+
+.top {
+    width: 33%;
+    height: 30%;
+    position: absolute;
+    top: 0;
+}
+
+.top-left {
+    left: -33%;
+    background: url('images/drag.jpg') no-repeat center;
+}
+
+.top-left-in {
+    left: 0;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s;   
+    -o-transition: all 0.5s ease-out;  
+    -ms-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+
+.top-middle {
+    top: -33%;
+    width: 34%;
+    background: url('images/graffiti.jpg') no-repeat center;
+}
+
+.top-middle-in {
+    top: 0;
+    left: 33%;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s;   
+    -o-transition: all 0.5s ease-out;  
+    -ms-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+
+.top-right {
+    right: -33%;
+    background: url('images/girls.jpg') no-repeat center;
+}
+
+.top-right-in {
+    right: 0;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s;   
+    -o-transition: all 0.5s ease-out;  
+    -ms-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
 
 /**
  * CSS for Ending Message
@@ -356,4 +481,18 @@ body, html {
     -o-transition: all 1s ease-out;  
     -ms-transition: all 1s ease-out;
     transition: all 1s ease-out;
+}
+
+.disappear {
+    -webkit-opacity:0; 
+    -moz-opacity:0; 
+    -o-opacity:0; 
+    -ms-filter:"alpha(opacity=0)";
+    filter:alpha(opacity=0);
+    opacity:0;
+    -webkit-transition: all 3s;
+    -moz-transition: all 3s;   
+    -o-transition: all 3s;  
+    -ms-transition: all 3s;
+    transition: all 3s;
 }
