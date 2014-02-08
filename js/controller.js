@@ -135,6 +135,10 @@ define([
             if($('video').length){
                 Video.play();
             }
+
+            if(Circles){
+                Circles.setUpAnimationInterval();
+            }
         },
 
         pauseAnimation: function(){

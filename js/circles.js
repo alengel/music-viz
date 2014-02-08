@@ -9,7 +9,7 @@ define([], function(){
         drawBackground: function(){
             var bg;
 
-            Circles.counter = 0;
+            Circles.circleCallCount = 1;
 
             $('.animation-content').append('<div class="circles"></div>');
             bg = $('.circles')[0];
@@ -19,20 +19,18 @@ define([], function(){
             Circles.setUpAnimationInterval();
         },
 
-        setUpAnimationInterval: function(){
-            var circleCallCount = 1;
-            
+        setUpAnimationInterval: function(){            
             Circles.circleInterval = setInterval(function(){
-                if(circleCallCount < 9){
-                    Circles.drawCircles(circleCallCount);
-                    circleCallCount++;
+                if(Circles.circleCallCount < 9){
+                    Circles.drawCircles(Circles.circleCallCount);
+                    Circles.circleCallCount++;
                 } else {
                     clearInterval(Circles.circleInterval);
                 }
             }, 500);
         }, 
 
-        drawCircles: function(circleCallCount){
+        drawCircles: function(){
             var $container = $('.animation-content'),
                 width = $container.width(),
                 height = $container.height(),
@@ -40,13 +38,13 @@ define([], function(){
                 y = height/2,
                 radius = 1;
 
-            Circles.animateCircles(x, y, radius, circleCallCount);   
+            Circles.animateCircles(x, y, radius);   
         },
 
-        animateCircles: function(x, y, radius, circleCallCount){
+        animateCircles: function(x, y, radius){
             var colour = getColour(),
                 circle = this.paper.circle(x, y, radius),
-                transformSize = 900 - (circleCallCount * 100);
+                transformSize = 900 - (Circles.circleCallCount * 100);
 
             circle.attr({
                 fill: colour,

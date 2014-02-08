@@ -71,7 +71,7 @@ body, html {
  */
 
 .controls {
-    z-index: 10;
+    z-index: 8;
     background: rgb(200, 54, 54);
     background: rgba(200, 54, 54, 0.5);
     border: 1px solid #3e3e3e;
@@ -306,7 +306,7 @@ body, html {
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 4;
+    z-index: 10;
 }
 
 
