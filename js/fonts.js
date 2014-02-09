@@ -6,15 +6,59 @@ define([
     'use strict';
     
     var Fonts = {
-        showWelcomeMessage: function(){
+        addFirstFourLetters: function(){
             var $animationContent = $('.welcome-content');
-            
-            $animationContent.addClass('welcome')
-                             .append('<span class="welcome-message">Brighton Music Animation</span>');
+            $animationContent.addClass('welcome');
+
+            var $welcome = $('.welcome');
+            $welcome.append('<span class="letter g">G</span>');
+            $welcome.append('<span class="letter o">O</span>');
+            $welcome.append('<span class="letter b">B</span>');
+            $welcome.append('<span class="letter n">N</span>');
+
+            _.delay(function(){
+                $('.g').addClass('-in');
+            }, 250);
+
+            _.delay(function(){
+                $('.o').addClass('-in');
+            }, 500);
+
+            _.delay(function(){
+                $('.b').addClass('-in');
+            }, 750);
+
+            _.delay(function(){
+                $('.n').addClass('-in');
+            }, 1000);
+        },
+
+        addSecondFourLetters: function(){
+            var $welcome = $('.welcome');
+            $welcome.append('<span class="letter r">R</span>');
+            $welcome.append('<span class="letter h">H</span>');
+            $welcome.append('<span class="letter t">T</span>');
+            $welcome.append('<span class="letter i">I</span>');
+
+            _.delay(function(){
+                $('.r').addClass('-in');
+            }, 250);
+
+            _.delay(function(){
+                $('.h').addClass('-in');
+            }, 500);
+
+            _.delay(function(){
+                $('.t').addClass('-in');
+            }, 750);
+
+            _.delay(function(){
+                $('.i').addClass('-in');
+            }, 1000);
         },
 
         changeWelcomeMessage: function(){
-            $('.welcome-message').addClass('change-colour');
+            $('.letter').addClass('change-colour');
         },
 
         rotateWelcomeMessage: function(){

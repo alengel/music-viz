@@ -71,24 +71,28 @@ define([
                 console.log(this.getTime());
             })
             .onceAt(1, function() {
-                Fonts.showWelcomeMessage();
+                Fonts.addFirstFourLetters();
             })
             .onceAt(2, function() {
-                Fonts.changeWelcomeMessage();
+                Fonts.addSecondFourLetters();
             })
-            .onceAt(3, function() {
-                Fonts.rotateWelcomeMessage();
+            .onceAt(3.5, function() {
+                Fonts.changeWelcomeMessage(); 
             })
             .onceAt(4, function() {
+                // Fonts.rotateWelcomeMessage();
+                
+            })
+            .onceAt(5, function() {
                 Fonts.moveMessage();
                 Circles.drawBackground();
-                Trumpets.drawBackground();
             })
             .onceAt(9, function() {
                 Video.setup();
             })
             .onceAt(10, function() {
                 Fonts.removeMessage();
+                Trumpets.drawBackground();
                 Trumpets.showTrumpets();
                 $('.trumpets').addClass('trumpets-left');
             })

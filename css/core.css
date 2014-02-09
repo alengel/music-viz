@@ -96,7 +96,7 @@ body, html {
 }
 
 .mini {
-    width: 13%;
+    width: 15%;
     right: 6px;
     bottom: 6px;
     -webkit-transition: all 1s ease-out;
@@ -175,6 +175,120 @@ body, html {
 
 
 /**
+ * CSS for Welcome Message
+ */
+
+.welcome{
+    margin-top: 230px;
+    height: 90px;
+    text-align: center;
+    font-size: 6em;
+}
+
+.letter {
+    position: absolute;
+}
+
+.b {
+    top: -20%;
+    left: 10%;
+    color: #FF0000;
+}
+
+.r {
+    top: -20%;
+    left: 20%;
+    color: #FF0000;
+}
+
+.i {
+    top: -20%;
+    left: 30%;
+    color: #FF8000;
+}
+
+.g {
+    top: -20%;
+    left: 40%;
+    color: #FFFF00;
+}
+
+.h {
+    top: -20%;
+    right: 40%;
+    color: #008000;
+}
+
+.t {
+    top: -20%;
+    right: 30%;
+    color: #0000FF;
+}
+
+.o {
+    top: -20%;
+    right: 20%;
+    color: #A000C0;
+}
+
+.n {
+    top: -20%;
+    right: 10%;
+    color: #A000C0;
+}
+
+.-in {
+    top: 10%;
+    -webkit-transform: rotate(360deg) translate(0, 100%);
+    -moz-transform: rotate(360deg) translate(0, 100%);
+    -ms-transform: rotate(360deg) translate(0, 100%);
+    -o-transform: rotate(360deg) translate(0, 100%);
+    transform: rotate(360deg) translate(0, 100%);
+    -webkit-transition: all 0.25s ease;
+    -moz-transition: all 0.25s;   
+    -o-transition: all 0.25s ease;  
+    -ms-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}
+
+.change-colour {
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s;   
+    -o-transition: all 1s ease;  
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+    color: rgb(200, 54, 54);
+}
+
+.rotate {
+    -webkit-transform:rotate(360deg);
+    -moz-transform:rotate(360deg);
+    -o-transform:rotate(360deg);
+    -ms-transform:rotate(360deg);
+    transform:rotate(360deg);
+}
+
+.move-to-right {
+    -webkit-opacity:.50; 
+    -moz-opacity:.50; 
+    -o-opacity:.50; 
+    -ms-filter:"alpha(opacity=50)";
+    filter:alpha(opacity=50);
+    opacity:.50;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s;   
+    -o-transition: all 1s ease;  
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+    -webkit-transform: translate(100%, 0);
+    -moz-transform: translate(100%, 0);
+    -ms-transform: translate(100%, 0);
+    -o-transform: translate(100%, 0);
+    transform: translate(100%, 0);
+}
+
+
+/**
  * CSS for Trumpets
  */
 
@@ -224,54 +338,6 @@ body, html {
     transform:rotate(172deg);
 }
 
-/**
- * CSS for Welcome Message
- */
-
-.welcome {
-    margin-top: 300px;
-    font-size: 48px;
-    text-align: center;
-    -webkit-transition: all 1s ease;
-    -moz-transition: all 1s;   
-    -o-transition: all 1s ease;  
-    -ms-transition: all 1s ease;
-    transition: all 1s ease;
-}
-
-.change-colour {
-    -webkit-transition: all 1s ease;
-    -moz-transition: all 1s;   
-    -o-transition: all 1s ease;  
-    -ms-transition: all 1s ease;
-    transition: all 1s ease;
-    color: rgb(200, 54, 54);
-}
-
-.rotate {
-    background-color: #F1F1F1;
-    -webkit-transform:rotate(360deg);
-    -moz-transform:rotate(360deg);
-    -o-transform:rotate(360deg);
-    -ms-transform:rotate(360deg);
-    transform:rotate(360deg);
-}
-
-.move-to-right {
-    -webkit-opacity:.20; 
-    -moz-opacity:.20; 
-    -o-opacity:.20; 
-    -ms-filter:"alpha(opacity=20)";
-    filter:alpha(opacity=20);
-    opacity:.20;
-    -webkit-transform: translate(100%, 0);
-    -moz-transform: translate(100%, 0);
-    -ms-transform: translate(100%, 0);
-    -o-transform: translate(100%, 0);
-    transform: translate(100%, 0);
-}
-
-
 
 /**
  * CSS for Video Player
@@ -288,10 +354,12 @@ body, html {
 .video-bg {
     width: 1%; 
     height: 1%;
+    position: absolute;
+    top: 33%;
+    left: 33%;
     background: rgb(0, 0, 0);
     background: rgba(0, 0, 0, 0.5); 
     text-align: center;
-    margin: 16% auto 0 auto;
     -webkit-border-radius: 1px; 
     -moz-border-radius: 1px;
     -ms-border-radius: 1px;
@@ -301,7 +369,10 @@ body, html {
 
 .video-bg.circle {
     width: 46%; 
-    height: 46%; 
+    height: 46%;
+    position: absolute;
+    top: 33%; 
+    left: 33%;
     -webkit-border-radius: 23%; 
     -moz-border-radius: 23%;
     -ms-border-radius: 23%;
@@ -315,13 +386,11 @@ body, html {
 }
 
 .video-bg.rectangle {
-    width: 40%;
-    height: 35.5%;
-    -webkit-border-radius: 20px; 
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
-    border-radius: 20px;
+    width: 34%;
+    height: 35%;
+    position: absolute;
+    top: 30%;
+    left: 33%;
     -webkit-transition: all 1s ease-out;
     -moz-transition: all 1s;   
     -o-transition: all 1s ease-out;  

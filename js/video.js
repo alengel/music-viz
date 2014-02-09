@@ -26,7 +26,7 @@ define([
             }, 50);
 
             _.delay(function(){
-                $('.video-bg').addClass('rectangle');
+                $('.video-bg').removeClass('circle').addClass('rectangle');
             }, 500);
 
             _.delay(Video.initialize, 2200);
