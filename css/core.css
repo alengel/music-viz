@@ -179,15 +179,49 @@ body, html {
  */
 
 .trumpets {
-    position: absolute;
-    bottom: 0;
     width: 100%;
-    z-index: 10;
-    -webkit-transition: all 1s ease;
-    -moz-transition: all 1s;   
-    -o-transition: all 1s ease;  
-    -ms-transition: all 1s ease;
-    transition: all 1s ease;
+    z-index: 6;
+    position: absolute;
+}
+
+.trumpets-left {
+    top: 12%;
+    left: -15%;
+    -webkit-transform:rotate(28deg);
+    -moz-transform:rotate(28deg);
+    -o-transform:rotate(28deg);
+    -ms-transform:rotate(28deg);
+    transform:rotate(28deg);
+}
+
+.trumpets-right {
+    top: -9%;
+    right: -44%;
+    -webkit-transform:rotate(274deg);
+    -moz-transform:rotate(274deg);
+    -o-transform:rotate(274deg);
+    -ms-transform:rotate(274deg);
+    transform:rotate(274deg);
+}
+
+.trumpets-top-left {
+    top: 12%;
+    left: -41%;
+    -webkit-transform:rotate(80deg);
+    -moz-transform:rotate(80deg);
+    -o-transform:rotate(80deg);
+    -ms-transform:rotate(80deg);
+    transform:rotate(80deg);
+}
+
+.trumpets-top-right {
+    top: -29%;
+    right: -11%;
+    -webkit-transform:rotate(172deg);
+    -moz-transform:rotate(172deg);
+    -o-transform:rotate(172deg);
+    -ms-transform:rotate(172deg);
+    transform:rotate(172deg);
 }
 
 /**
@@ -281,8 +315,8 @@ body, html {
 }
 
 .video-bg.rectangle {
-    width: 46%;
-    height: 45.5%;
+    width: 40%;
+    height: 35.5%;
     -webkit-border-radius: 20px; 
     -moz-border-radius: 20px;
     -ms-border-radius: 20px;
@@ -338,11 +372,11 @@ body, html {
 .bottom-middle-in {
     left: 33%;
     right: 33%;
-    -webkit-transition: all 0.5s ease-out;
-    -moz-transition: all 0.5s;   
-    -o-transition: all 0.5s ease-out;  
-    -ms-transition: all 0.5s ease-out;
-    transition: all 0.5s ease-out;
+    -webkit-transition: all 0.4s ease-out;
+    -moz-transition: all 0.4s;   
+    -o-transition: all 0.4s ease-out;  
+    -ms-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
 }
 
 .bottom-left {
@@ -352,11 +386,11 @@ body, html {
 
 .bottom-left-in {
     left: 0;
-    -webkit-transition: all 0.5s ease-out;
-    -moz-transition: all 0.5s;   
-    -o-transition: all 0.5s ease-out;  
-    -ms-transition: all 0.5s ease-out;
-    transition: all 0.5s ease-out;
+    -webkit-transition: all 0.4s ease-out;
+    -moz-transition: all 0.4s;   
+    -o-transition: all 0.4s ease-out;  
+    -ms-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
 }
 
 .bottom-right {
@@ -366,15 +400,15 @@ body, html {
 
 .bottom-right-in {
     right: 0;
-    -webkit-transition: all 0.5s ease-out;
-    -moz-transition: all 0.5s;   
-    -o-transition: all 0.5s ease-out;  
-    -ms-transition: all 0.5s ease-out;
-    transition: all 0.5s ease-out;
+    -webkit-transition: all 0.4s ease-out;
+    -moz-transition: all 0.4s;   
+    -o-transition: all 0.4s ease-out;  
+    -ms-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
 }
 
 .centre {
-    width: 30%;
+    width: 33%;
     height: 35%;
     position: absolute;
 }
@@ -387,11 +421,11 @@ body, html {
 .centre-left-in {
     top: 30%;
     left: 0;
-    -webkit-transition: all 0.5s ease-out;
-    -moz-transition: all 0.5s;   
-    -o-transition: all 0.5s ease-out;  
-    -ms-transition: all 0.5s ease-out;
-    transition: all 0.5s ease-out;
+    -webkit-transition: all 0.4s ease-out;
+    -moz-transition: all 0.4s;   
+    -o-transition: all 0.4s ease-out;  
+    -ms-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
 }
 
 .centre-right {
@@ -402,11 +436,11 @@ body, html {
 .centre-right-in {
     top: 30%;
     right: 0;
-    -webkit-transition: all 0.5s ease-out;
-    -moz-transition: all 0.5s;   
-    -o-transition: all 0.5s ease-out;  
-    -ms-transition: all 0.5s ease-out;
-    transition: all 0.5s ease-out;
+    -webkit-transition: all 0.4s ease-out;
+    -moz-transition: all 0.4s;   
+    -o-transition: all 0.4s ease-out;  
+    -ms-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
 }
 
 .top {
@@ -423,11 +457,11 @@ body, html {
 
 .top-left-in {
     left: 0;
-    -webkit-transition: all 0.5s ease-out;
-    -moz-transition: all 0.5s;   
-    -o-transition: all 0.5s ease-out;  
-    -ms-transition: all 0.5s ease-out;
-    transition: all 0.5s ease-out;
+    -webkit-transition: all 0.4s ease-out;
+    -moz-transition: all 0.4s;   
+    -o-transition: all 0.4s ease-out;  
+    -ms-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
 }
 
 .top-middle {
@@ -439,11 +473,11 @@ body, html {
 .top-middle-in {
     top: 0;
     left: 33%;
-    -webkit-transition: all 0.5s ease-out;
-    -moz-transition: all 0.5s;   
-    -o-transition: all 0.5s ease-out;  
-    -ms-transition: all 0.5s ease-out;
-    transition: all 0.5s ease-out;
+    -webkit-transition: all 0.4s ease-out;
+    -moz-transition: all 0.4s;   
+    -o-transition: all 0.4s ease-out;  
+    -ms-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
 }
 
 .top-right {
@@ -453,11 +487,11 @@ body, html {
 
 .top-right-in {
     right: 0;
-    -webkit-transition: all 0.5s ease-out;
-    -moz-transition: all 0.5s;   
-    -o-transition: all 0.5s ease-out;  
-    -ms-transition: all 0.5s ease-out;
-    transition: all 0.5s ease-out;
+    -webkit-transition: all 0.4s ease-out;
+    -moz-transition: all 0.4s;   
+    -o-transition: all 0.4s ease-out;  
+    -ms-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
 }
 
 /**

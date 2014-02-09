@@ -10,7 +10,7 @@ define([], function(){
             $('.animation-content').append('<div class="trumpets"></div>');
             bg = $('.trumpets')[0];
 
-            this.paper = new Raphael(bg, '70%', '70%'); 
+            this.paper = new Raphael(bg, '100%', '100%'); 
 
             Trumpets.drawTrumpets();
         },
@@ -22,11 +22,6 @@ define([], function(){
                 
             this.trumpets = [];
             this.trumpets.push(upperTrumpet, middleTrumpet, lowerTrumpet);
-
-            this.trumpets.forEach(function(trumpet){
-                trumpet.attr({'fill':'#FFD700','stroke':'1px'});
-                Trumpets.setupAnimationTimers(trumpet);
-            });
         },
 
         setupAnimationTimers: function(trumpet){
@@ -80,7 +75,7 @@ define([], function(){
 
             _.delay(function(){
                 that.hideTrumpets(trumpet);
-            }, 3000);
+            }, 2000);
         },
 
         hideTrumpets: function(){
@@ -94,6 +89,7 @@ define([], function(){
         showTrumpets: function(){
             $('.trumpets').removeClass('hidden');
             Trumpets.trumpets.forEach(function(trumpet){
+                trumpet.attr({'fill':'#FFD700','stroke':'1px'});
                 Trumpets.setupAnimationTimers(trumpet);
             });
         }

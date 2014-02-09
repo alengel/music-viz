@@ -25,7 +25,7 @@ define([], function(){
                     Circles.drawCircles(Circles.circleCallCount);
                     Circles.circleCallCount++;
                 } else {
-                    clearInterval(Circles.circleInterval);
+                    window.clearInterval(Circles.circleInterval);
                 }
             }, 500);
         }, 
@@ -60,7 +60,7 @@ define([], function(){
         },
 
         pauseAnimation: function(){
-            clearInterval(Circles.circleInterval);
+            window.clearInterval(Circles.circleInterval);
         },
 
         remove: function(){

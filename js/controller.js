@@ -82,35 +82,39 @@ define([
             .onceAt(4, function() {
                 Fonts.moveMessage();
                 Circles.drawBackground();
+                Trumpets.drawBackground();
             })
             .onceAt(9, function() {
                 Video.setup();
             })
             .onceAt(10, function() {
                 Fonts.removeMessage();
-                Trumpets.drawBackground();
+                Trumpets.showTrumpets();
+                $('.trumpets').addClass('trumpets-left');
             })
             .onceAt(12, function() {
                 Photobooth.getBottomMiddle();
             })
             .onceAt(13, function() {
-                Trumpets.showTrumpets();
                 Photobooth.getBottomLeft();
             })
             .onceAt(14, function() {
                 Photobooth.getBottomRight();
+                Trumpets.showTrumpets();
+                $('.trumpets').removeClass('trumpets-left').addClass('trumpets-right');
             })
             .onceAt(15, function() {
                 Photobooth.getCentreLeft();
             })
-            .onceAt(16, function() {
+            .onceAt(17, function() {
                 Photobooth.getCentreRight();
+                Trumpets.showTrumpets();
+                $('.trumpets').removeClass('trumpets-right').addClass('trumpets-top-left');
             })
             .onceAt(17, function() {
                 Photobooth.getTopLeft();
             })
             .onceAt(18, function() {
-                Trumpets.showTrumpets();
                 Photobooth.getTopRight();
             })
             .onceAt(19, function() {
@@ -118,6 +122,7 @@ define([
             })
             .onceAt(20, function() {
                 Trumpets.showTrumpets();
+                $('.trumpets').removeClass('trumpets-top-left').addClass('trumpets-top-right');
             })
             .onceAt(23, function(){
                 Circles.remove();
@@ -136,7 +141,7 @@ define([
                 Video.play();
             }
 
-            if(Circles){
+            if($('.circles').length){
                 Circles.setUpAnimationInterval();
             }
         },
@@ -148,7 +153,7 @@ define([
                 Video.pause();
             }
 
-            if(Circles){
+            if($('.circles').length){
                 Circles.pauseAnimation();
             }
         },

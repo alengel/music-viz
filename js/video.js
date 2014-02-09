@@ -33,7 +33,7 @@ define([
         },
 
         initialize: function(){
-            $('.video-bg').append('<video class="video-player" id="video-player" muted width="480" height="360" autoplay="autoplay"><source src="video/Brighton.mp4" type="video/mp4"></video>');
+            $('.video-bg').append('<video class="video-player" id="video-player" muted width="100%" height="100%" autoplay="autoplay"><source src="video/Brighton.mp4" type="video/mp4"></video>');
         },
 
         pause: function(){
