@@ -1,15 +1,17 @@
 define([], function(){
     'use strict';
 
+    //Get random RGB value
     function getColour(){
         return 'rgb(' + _.random(0, 255) + ',' + _.random(0, 255) + ',' + _.random(0, 255) + ')';
     }
     
     var Circles = {
+        //Draw Raphael background and append to DOM
         drawBackground: function(){
             var bg;
 
-            Circles.counter = 0;
+            Circles.circleCallCount = 1;
 
             $('.animation-content').append('<div class="circles"></div>');
             bg = $('.circles')[0];
@@ -19,20 +21,21 @@ define([], function(){
             Circles.setUpAnimationInterval();
         },
 
-        setUpAnimationInterval: function(){
-            var circleCallCount = 1;
-            
+        //Call drawCircles as long as there are less than 9 circles
+        //Otherwise clear interval
+        setUpAnimationInterval: function(){            
             Circles.circleInterval = setInterval(function(){
-                if(circleCallCount < 9){
-                    Circles.drawCircles(circleCallCount);
-                    circleCallCount++;
+                if(Circles.circleCallCount < 9){
+                    Circles.drawCircles(Circles.circleCallCount);
+                    Circles.circleCallCount++;
                 } else {
-                    clearInterval(Circles.circleInterval);
+                    window.clearInterval(Circles.circleInterval);
                 }
             }, 500);
         }, 
 
-        drawCircles: function(circleCallCount){
+        //Draw a circle
+        drawCircles: function(){
             var $container = $('.animation-content'),
                 width = $container.width(),
                 height = $container.height(),
@@ -40,13 +43,14 @@ define([], function(){
                 y = height/2,
                 radius = 1;
 
-            Circles.animateCircles(x, y, radius, circleCallCount);   
+            Circles.animateCircles(x, y, radius);   
         },
 
-        animateCircles: function(x, y, radius, circleCallCount){
+        //Animate a circle at the position with the passed in values
+        animateCircles: function(x, y, radius){
             var colour = getColour(),
                 circle = this.paper.circle(x, y, radius),
-                transformSize = 900 - (circleCallCount * 100);
+                transformSize = 900 - (Circles.circleCallCount * 100);
 
             circle.attr({
                 fill: colour,
@@ -61,10 +65,12 @@ define([], function(){
             }, 800);
         },
 
+        //Clear the interval when the animation is paused
         pauseAnimation: function(){
-            clearInterval(Circles.circleInterval);
+            window.clearInterval(Circles.circleInterval);
         },
 
+        //Remove the circles element from the DOM 
         remove: function(){
             $('.circles').remove();
         }
