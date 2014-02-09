@@ -256,52 +256,45 @@ body, html {
 
 .letter {
     position: absolute;
+    top: -20%;
 }
 
 .b {
-    top: -20%;
     left: 10%;
     color: #FF0000;
 }
 
 .r {
-    top: -20%;
     left: 20%;
     color: #FF0000;
 }
 
 .i {
-    top: -20%;
     left: 30%;
     color: #FF8000;
 }
 
 .g {
-    top: -20%;
     left: 40%;
     color: #FFFF00;
 }
 
 .h {
-    top: -20%;
     right: 40%;
     color: #008000;
 }
 
 .t {
-    top: -20%;
     right: 30%;
     color: #0000FF;
 }
 
 .o {
-    top: -20%;
     right: 20%;
     color: #A000C0;
 }
 
 .n {
-    top: -20%;
     right: 10%;
     color: #A000C0;
 }
