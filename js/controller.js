@@ -1,5 +1,6 @@
 define([
     'js/audio',
+    'js/rainbow',
     'js/trumpets',
     'js/controls',
     'js/fonts',
@@ -11,6 +12,7 @@ define([
     'lib/dancer'
 ], function(
     Audio,
+    Rainbow,
     Trumpets,
     Controls,
     Fonts,
@@ -22,6 +24,7 @@ define([
     'use strict';
 
     var Controller = {
+        //Bind all triggered events to event handlers and initialise background
         initialize: function(){
             $('.toggle-button').on('replay', this.reloadAnimation);
             $('.audioFile').on('play-audio', this.playAnimation);
@@ -29,10 +32,12 @@ define([
             $('.audioFile').on('stop-audio', this.resetAnimation);
 
             Audio.initialize();
+            Rainbow.addToDom();
             this.setupTransitionEnd();
             this.setUpAnimation();
         },
 
+        //Bind cross-browser transition events to transitionend and start animation
         setupTransitionEnd: function(){
             var transEndEventNames = {
                 'WebkitTransition' : 'webkitTransitionEnd',
@@ -48,6 +53,7 @@ define([
             });
         },
 
+        //Initialise dancer and bind all calls to the timer
         setUpAnimation: function(){
             var audio  = document.getElementsByTagName('audio')[0],
                 counter = 0,
@@ -55,21 +61,14 @@ define([
 
             Controller.dancer = new Dancer();
             kick = Controller.dancer.createKick({
-                frequency: 5,
                 threshold: 0.2,
-                onKick: function ( mag ) {
-                    // console.log(this.getTime());
-                },
-                offKick: function ( mag ) {
-                    // console.log(this.getTime());
+                onKick: function () {
+                    Rainbow.show();
                 }
             });
             kick.on();
 
             Controller.dancer
-            .between(0, 30, function() {
-                console.log(this.getTime());
-            })
             .onceAt(1, function() {
                 Fonts.addFirstFourLetters();
             })
@@ -78,10 +77,6 @@ define([
             })
             .onceAt(3.5, function() {
                 Fonts.changeWelcomeMessage(); 
-            })
-            .onceAt(4, function() {
-                // Fonts.rotateWelcomeMessage();
-                
             })
             .onceAt(5, function() {
                 Fonts.moveMessage();
@@ -138,6 +133,7 @@ define([
             }).load(audio);
         },
 
+        //Play animation after the play button is clicked
         playAnimation: function(){
             Controller.dancer.play();
 
@@ -150,6 +146,7 @@ define([
             }
         },
 
+        //Pause animation after the pause button is clicked
         pauseAnimation: function(){
             Controller.dancer.pause();
                 
@@ -162,6 +159,7 @@ define([
             }
         },
 
+        //Lower volume, show "Reload Animation" message and trigger "stop-audio"
         endAnimation: function(){
             Controller.lowerVolumeInterval = setInterval(Controls.lowerVolume, 500);
             $('.animation-content').addClass('disappear');
@@ -173,12 +171,14 @@ define([
             }, 3000);
         },
 
+        //Clears animation content and resets audio
         resetAnimation: function(){
             Controller.dancer.pause();
             Controller.dancer.currentTime = 0;
             $('.animation-content').empty();
         },
 
+        //Reloads the window to start again
         reloadAnimation: function(){
             location.reload();
         },

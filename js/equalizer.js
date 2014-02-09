@@ -1,10 +1,12 @@
 define([], function(){
     'use strict';
 
+    //Get a random RGB value
     function getColour(){
         return 'rgb(' + _.random(0, 255) + ',' + _.random(0, 255) + ',' + _.random(0, 255) + ')';
     }
 
+    //Set an interval & clear it utility function
     function setIntervalX(callback, delay, repetitions) {
         var x = 0;
         var intervalID = window.setInterval(function () {
@@ -18,6 +20,7 @@ define([], function(){
     }
 
     var Equalizer = {
+        //Draw Raphael background and append to DOM
         drawEqualizer: function(){
             $('.animation-content').append('<div class="equalizer"></div>');
             var bg = $('.equalizer')[0];
@@ -27,11 +30,12 @@ define([], function(){
             this.calculateRectanglesForXAxis();
         },
 
+        //Calculate how many bars are needed across the x axis
         calculateRectanglesForXAxis: function(){
             var containerWidth = $('.animation-content').width(),
                 x = 0,
                 barWidth = 70,
-                numberOfBars = Math.round(containerWidth / barWidth);
+                numberOfBars = Math.ceil(containerWidth / barWidth);
 
             _(numberOfBars).times(function(){
                 Equalizer.drawRectangle(x, barWidth);
@@ -39,6 +43,7 @@ define([], function(){
             });
         },
 
+        //Draw one rectangle and colour it
         drawRectangle: function(x, barWidth){
             var containerHeight = $('.animation-content').height(),
                 startingHeight = 0,
@@ -69,6 +74,7 @@ define([], function(){
             }
         },
 
+        //Animate the rectangle based on the passed in parameters
         animateBar: function(bar, delay, stepHeight, containerHeight, currentCount, speed){
             var yStart = containerHeight - stepHeight * currentCount;
 

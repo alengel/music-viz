@@ -1,11 +1,13 @@
 define([], function(){
     'use strict';
 
+    //Get random RGB value
     function getColour(){
         return 'rgb(' + _.random(0, 255) + ',' + _.random(0, 255) + ',' + _.random(0, 255) + ')';
     }
     
     var Circles = {
+        //Draw Raphael background and append to DOM
         drawBackground: function(){
             var bg;
 
@@ -19,6 +21,8 @@ define([], function(){
             Circles.setUpAnimationInterval();
         },
 
+        //Call drawCircles as long as there are less than 9 circles
+        //Otherwise clear interval
         setUpAnimationInterval: function(){            
             Circles.circleInterval = setInterval(function(){
                 if(Circles.circleCallCount < 9){
@@ -30,6 +34,7 @@ define([], function(){
             }, 500);
         }, 
 
+        //Draw a circle
         drawCircles: function(){
             var $container = $('.animation-content'),
                 width = $container.width(),
@@ -41,6 +46,7 @@ define([], function(){
             Circles.animateCircles(x, y, radius);   
         },
 
+        //Animate a circle at the position with the passed in values
         animateCircles: function(x, y, radius){
             var colour = getColour(),
                 circle = this.paper.circle(x, y, radius),
@@ -59,10 +65,12 @@ define([], function(){
             }, 800);
         },
 
+        //Clear the interval when the animation is paused
         pauseAnimation: function(){
             window.clearInterval(Circles.circleInterval);
         },
 
+        //Remove the circles element from the DOM 
         remove: function(){
             $('.circles').remove();
         }

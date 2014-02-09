@@ -6,6 +6,7 @@ define([
     'use strict';
     
     var Fonts = {
+        //Adds the first set of four letters of BRIGHTON after a short delay
         addFirstFourLetters: function(){
             var $animationContent = $('.welcome-content');
             $animationContent.addClass('welcome');
@@ -33,6 +34,7 @@ define([
             }, 1000);
         },
 
+        //Adds the second set of four letters of BRIGHTON after a short delay
         addSecondFourLetters: function(){
             var $welcome = $('.welcome');
             $welcome.append('<span class="letter r">R</span>');
@@ -42,38 +44,39 @@ define([
 
             _.delay(function(){
                 $('.r').addClass('-in');
-            }, 250);
-
-            _.delay(function(){
-                $('.h').addClass('-in');
             }, 500);
 
             _.delay(function(){
-                $('.t').addClass('-in');
+                $('.h').addClass('-in');
             }, 750);
 
             _.delay(function(){
-                $('.i').addClass('-in');
+                $('.t').addClass('-in');
             }, 1000);
+
+            _.delay(function(){
+                $('.i').addClass('-in');
+            }, 1250);
         },
 
+        //Changes the font-colour to a different colour
         changeWelcomeMessage: function(){
             $('.letter').addClass('change-colour');
         },
 
-        rotateWelcomeMessage: function(){
-            $('.welcome').addClass('rotate');
-        },
-
+        //Moves the message off the screen
         moveMessage: function(){
             $('.welcome').addClass('move-to-right');
         },
 
+        //Removes the message from the DOM
         removeMessage: function(){
-            $('.welcome').removeClass('welcome rotate move-to-right'); 
+            $('.welcome').removeClass('welcome move-to-right'); 
             $('.welcome-content').remove();
         },
 
+        //Fades in the message at the end, moves the controls back into the centre
+        //Resets the controls after a short delay
         showEndMessage: function(){
             var $animationContent = $('.content');
             

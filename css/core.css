@@ -9,6 +9,11 @@ body, html {
     bottom: 0;
     left: 0;
     right: 0;
+    background: -moz-linear-gradient(top,  rgba(149,149,149,1) 0%, rgba(13,13,13,1) 46%, rgba(1,1,1,1) 50%, rgba(10,10,10,1) 53%, rgba(78,78,78,1) 76%, rgba(56,56,56,1) 87%, rgba(27,27,27,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(149,149,149,1)), color-stop(46%,rgba(13,13,13,1)), color-stop(50%,rgba(1,1,1,1)), color-stop(53%,rgba(10,10,10,1)), color-stop(76%,rgba(78,78,78,1)), color-stop(87%,rgba(56,56,56,1)), color-stop(100%,rgba(27,27,27,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(149,149,149,1) 0%,rgba(13,13,13,1) 46%,rgba(1,1,1,1) 50%,rgba(10,10,10,1) 53%,rgba(78,78,78,1) 76%,rgba(56,56,56,1) 87%,rgba(27,27,27,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(149,149,149,1) 0%,rgba(13,13,13,1) 46%,rgba(1,1,1,1) 50%,rgba(10,10,10,1) 53%,rgba(78,78,78,1) 76%,rgba(56,56,56,1) 87%,rgba(27,27,27,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(149,149,149,1) 0%,rgba(13,13,13,1) 46%,rgba(1,1,1,1) 50%,rgba(10,10,10,1) 53%,rgba(78,78,78,1) 76%,rgba(56,56,56,1) 87%,rgba(27,27,27,1) 100%); /* IE10+ */
 }
 
 .bg-content {
@@ -17,6 +22,7 @@ body, html {
     bottom: 40%;
     left: 40%;
     right: 40%;
+    border: 1px solid #555555;
     background: url('images/wheel.jpg') no-repeat center;
     background-size: cover;
     -webkit-transition: all 1s ease;
@@ -67,6 +73,68 @@ body, html {
 
 
 /**
+ * CSS for Rainbow Flag
+ */
+
+.rainbow {
+    width: 142px;
+    height: 102px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 8;
+    -webkit-opacity:.80; 
+    -moz-opacity:.80; 
+    -o-opacity:.80; 
+    opacity:.80;
+}
+
+.rotation {
+    -moz-transform: scale(1.5) rotate(360deg);
+    -webkit-transform: scale(1.5) rotate(360deg);
+    -o-transform: scale(1.5) rotate(360deg);
+    -ms-transform: scale(1.5) rotate(360deg);
+    transform: scale(1.5) rotate(360deg);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s;   
+    -o-transition: all 1s ease;  
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.red {
+    width: 100%;
+    height: 16.6%;
+    background-color: #FF0000;    
+}
+.orange {
+    width: 100%;
+    height: 16.6%;
+    background-color: #FF8000;    
+}
+.yellow {
+    width: 100%;
+    height: 16.6%;
+    background-color: #FFFF00;    
+}
+.green {
+    width: 100%;
+    height: 16.6%;
+    background-color: #008000;    
+}
+.blue {
+    width: 100%;
+    height: 16.6%;
+    background-color: #0000FF;    
+}
+.purple {
+    width: 100%;
+    height: 16.6%;
+    background-color: #A000C0;    
+}
+
+
+/**
  * CSS for Player Controls
  */
 
@@ -96,7 +164,8 @@ body, html {
 }
 
 .mini {
-    width: 15%;
+    width: 11%;
+    min-width: 155px;
     right: 6px;
     bottom: 6px;
     -webkit-transition: all 1s ease-out;
@@ -258,14 +327,6 @@ body, html {
     -ms-transition: all 1s ease;
     transition: all 1s ease;
     color: rgb(200, 54, 54);
-}
-
-.rotate {
-    -webkit-transform:rotate(360deg);
-    -moz-transform:rotate(360deg);
-    -o-transform:rotate(360deg);
-    -ms-transform:rotate(360deg);
-    transform:rotate(360deg);
 }
 
 .move-to-right {
