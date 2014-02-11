@@ -13,6 +13,7 @@ function(
     'use strict';
 
     var MusicViz = {
+        //This is the main entry point to the app
         initialize: function(){
             Controller.initialize();
         }

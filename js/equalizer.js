@@ -6,19 +6,6 @@ define([], function(){
         return 'rgb(' + _.random(0, 255) + ',' + _.random(0, 255) + ',' + _.random(0, 255) + ')';
     }
 
-    //Set an interval & clear it utility function
-    function setIntervalX(callback, delay, repetitions) {
-        var x = 0;
-        var intervalID = window.setInterval(function () {
-
-           callback();
-
-           if (++x === repetitions) {
-               window.clearInterval(intervalID);
-           }
-        }, delay);
-    }
-
     var Equalizer = {
         //Draw Raphael background and append to DOM
         drawEqualizer: function(){
