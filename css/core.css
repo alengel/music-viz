@@ -421,6 +421,10 @@ body, html {
     border-radius: 1px;
 }
 
+.circles {
+    height: 100%;
+}
+
 .video-bg.circle {
     width: 46%; 
     height: 46%;
@@ -632,7 +636,7 @@ body, html {
 
 .final-position {
     position: relative;
-    margin-top: 265px;
+    margin-top: 170px;
     -webkit-transition: all 1s ease-out;
     -moz-transition: all 1s;   
     -o-transition: all 1s ease-out;  
